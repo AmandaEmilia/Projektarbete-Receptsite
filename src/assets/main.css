@@ -2,38 +2,56 @@
 
 
 
-/* @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
 
-  font-weight: normal;
+/* Globala stilar */
+:root {
+
+  --asian-text-color: #ffffff;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--asian-text-color);
+
+  background-image: url('fish.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* Huvudkomponenter */
+.header,
+.aside,
+.main {
+  background-color: white;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Specifika komponenter */
+.search-box,
+.category-list,
+.recipe-list {
+  padding: 5px;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
+.search-box input[type="text"] {
+  border: 2px solid #0c88da;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Ändra bågens färg när musen svävar över sökfältet */
+.search-box input[type="text"]:hover {
+  border-color: #2980b9;
+}
