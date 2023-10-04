@@ -17,9 +17,8 @@ export default {
         }
     }
 }
-
-
 </script>
+
 <template>
     <div class="greetings">
         <h1 class="green">{{ heading }}</h1>
