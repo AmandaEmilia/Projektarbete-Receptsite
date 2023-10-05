@@ -1,4 +1,5 @@
 <!-- Task 2.6 Lista recept-->
+<!-- Testing för att köra med pullrequest iställe för git merge-->
 <script>
 export default { // Hämtar ut alla recept från API
     data() {
@@ -38,8 +39,6 @@ export default { // Hämtar ut alla recept från API
 </template>
 
 <style>
-
-
 /*  h1 {
     text-align: center;
 }
@@ -89,7 +88,7 @@ img {
 
 
 /* Styla <h1> elementet */
-    h1 {
+h1 {
     text-align: center;
     font-size: 36px;
     color: #333;
@@ -103,7 +102,8 @@ img {
     width: 100px;
     float: left;
     margin-right: 10px;
-    border-radius: 50%; /* Runda kanterna på bilderna */
+    border-radius: 50%;
+    /* Runda kanterna på bilderna */
 }
 
 /* Styla <div> element med klassen "recipe-head" */
@@ -131,7 +131,8 @@ img {
     color: #444;
     line-height: 1.4;
     padding: 10px;
-    background-color: #f9f9f9; /* Lätt bakgrundsfärg */
+    background-color: #f9f9f9;
+    /* Lätt bakgrundsfärg */
     border-radius: 10px;
 }
 
@@ -165,8 +166,8 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-genomskinlig bakgrundsfärg */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
-
 </style>
