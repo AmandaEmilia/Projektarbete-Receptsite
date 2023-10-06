@@ -29,7 +29,7 @@ export default { // Hämtar ut alla recept från API
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ recipe.description }}</div>
