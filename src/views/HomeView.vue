@@ -10,8 +10,7 @@ import CategoryListComponent from '../components/CategoryListComponent.vue';
     <SearchBoxComponent></SearchBoxComponent>
     <CategoryListComponent></CategoryListComponent>
     <AllRecipesComponent></AllRecipesComponent>
-    <SearchBoxComponent></SearchBoxComponent>
-    
+      
     <!-- <CommentComponent></CommentComponent> -->
 </template>
 <style scoped></style>
