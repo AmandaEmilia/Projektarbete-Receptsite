@@ -91,9 +91,6 @@ img {
 h1 {
     text-align: center;
     font-size: 36px;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 /* Styla bilder */
