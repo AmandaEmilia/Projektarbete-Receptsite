@@ -56,11 +56,12 @@ body {
   border-color: #2980b9;
 }
 
-
+/* Meddelande som kan användas på hela sajten*/
 .alert {
-  padding: 20px;
+  padding: 10px;
   color: black;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .alert.success {color: #04AA6D;}

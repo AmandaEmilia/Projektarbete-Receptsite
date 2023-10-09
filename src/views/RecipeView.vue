@@ -20,7 +20,7 @@ export default {
 <template>
     <h1>RecipeView</h1>
     <RecipeComponent></RecipeComponent>
-    <CommentComponent></CommentComponent>
+    <CommentComponent :recipe-id="this.$route.params.recipeId"></CommentComponent>
     <rating-component></rating-component>
 </template>
 <style scoped></style>
