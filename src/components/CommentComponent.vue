@@ -12,6 +12,15 @@
         <div class="form-group">
             <button :disabled="!isInputValid" @click="submitComment">Skicka</button>
         </div>
+        <div v-if="comments.length > 0" >
+            <h3>Befintliga kommentarer</h3>
+      <ul>
+        <li v-for="comment in comments" :key="comment._id">
+          <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
+          <p>{{ comment.comment }}</p>
+        </li>
+      </ul>
+        </div>
     </div>
 </template>
 
@@ -26,7 +35,8 @@ export default {
         return {
             commentInput: "",
             nameInput: "",
-            isBtnEnabled: false
+            isBtnEnabled: false,
+            comments: [],
         }
     },
     computed: {
@@ -42,7 +52,6 @@ export default {
     },
     methods: {
         submitComment() {
-            console.log("Should submit comment for recipeid: ", this.recipeId);
             fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/'+this.recipeId+'/comments', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -58,12 +67,24 @@ export default {
                     console.log(json)
 
                 });
+        },
+        getAllComments(){
+            fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/'+this.recipeId+'/comments')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                this.comments = data;
+                
 
-
+            
+            });
         }
 
 
     },
+    mounted(){
+        this.getAllComments();
+    }
 
 
 }
