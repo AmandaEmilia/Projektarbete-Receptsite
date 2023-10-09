@@ -55,3 +55,30 @@ body {
 .search-box input[type="text"]:hover {
   border-color: #2980b9;
 }
+
+
+.alert {
+  padding: 20px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.alert.success {color: #04AA6D;}
+.alert.info {color: #2196F3;}
+.alert.warning {color: #ccff00;}
+.alert.danger {color: #f44336;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

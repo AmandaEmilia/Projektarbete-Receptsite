@@ -2,6 +2,7 @@
 <template>
     <div>
         <h2>Kommentarer</h2>
+        <div v-if="invalidErrorMsg" class="alert warning">{{ invalidErrorMsg }}</div>
        <textarea placeholder="Skriv din kommentar" v-model="commentInput"></textarea>
        <input type="text" placeholder="Ditt namn" v-model="nameInput">
        <button :disabled="!isInputValid" @click="submitComment">Skicka</button>
@@ -18,6 +19,12 @@
             }
         },
         computed: {
+            invalidErrorMsg(){
+                if(this.commentInput == "" || this.nameInput == ""){
+                    return "Var vänlig och fyll i båda fälten!";
+                }
+                
+            },
             isInputValid(){
                 return this.commentInput != "" && this.nameInput != "";
             }
