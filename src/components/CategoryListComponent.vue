@@ -28,7 +28,7 @@ export default {
 <template>
     <h1>{{ heading }}</h1>
 
-    <nav v-for="category in categories">
+    <nav v-for="category in categories" :key="categories._id">
         <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
     </nav>
 </template>
