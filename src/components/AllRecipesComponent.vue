@@ -10,13 +10,14 @@ export default { // Hämtar ut alla recept från API
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.recipes = null;
-            const response = await fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes");
-            this.recipes = await response.json();
+            fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes")
+                .then((response) => response.json())
+                .then((data) => { this.recipes = data })
         }
     },
-    beforeMount() {
+    mounted() {
         this.fetchData()
     }
 }
