@@ -1,5 +1,7 @@
+<!-- Task 3.1 CategoryView-->
 <script setup>
 import CategoryListComponent from '../components/CategoryListComponent.vue'
+import CategorySearchBox from '../components/CategorySearchBox.vue';
 </script>
 <script>
 
@@ -33,6 +35,7 @@ export default {
 </script>
 
 <template>
+    <CategorySearchBox></CategorySearchBox>
     <CategoryListComponent></CategoryListComponent>
     <h1>{{ this.$route.params.categoryId }}</h1>
     <div v-for="recipe in category">
