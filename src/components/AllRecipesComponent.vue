@@ -26,7 +26,7 @@ export default { // Hämtar ut alla recept från API
 <template>
     <h1>{{ heading }}</h1>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes">
+    <main v-for="recipe in recipes" :key="recipe._id">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
