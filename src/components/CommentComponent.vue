@@ -14,7 +14,6 @@
                 <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <!-- <button :disabled="!isInputValid" @click="submitComment">Skicka</button> -->
                 <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
             </div>
             <div v-if="comments.length > 0">
