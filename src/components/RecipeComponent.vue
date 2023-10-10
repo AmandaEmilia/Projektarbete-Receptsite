@@ -14,15 +14,18 @@ export default {
     methods: {
         async fetchData() {
             this.recipe = null;
-            const response = await fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se${this.$route.path}`);
-            this.recipe = await response.json();
 
-            this.heading = this.recipe.title;
-            this.imageUrl = this.recipe.imageUrl;
-            this.description = this.recipe.description;
-            this.instructions = this.recipe.instructions;
-            this.ingredients = this.recipe.ingredients;
-
+            fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}`)
+            .then((response) => response.json())
+            .then(recipeData => {
+                this.recipe = recipeData;
+                this.heading = this.recipe.title;
+                this.imageUrl = this.recipe.imageUrl;
+                this.description = this.recipe.description;
+                this.instructions = this.recipe.instructions;
+                this.ingredients = this.recipe.ingredients;
+            });
+    
         }
     },
     beforeMount() {
@@ -40,13 +43,13 @@ export default {
             <div class="grid-item recipe-img"><img :src="imageUrl" alt="picture"></div>
             <div class="grid-item recipe-description">{{ description }}</div>
             <div class="grid-item recipe-main">
-                <ul v-for="ingredient in ingredients">
-                    <li>{{ ingredient.name + " " + ingredient.amount + " " + ingredient.unit }}</li>
+                <ul>
+                    <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " + ingredient.amount + " " + ingredient.unit }}</li>
                 </ul>
             </div>
             <div class="grid-item recipe-foot">
-                <ul v-for="instruction in instructions">
-                 <li>{{ instruction }}</li>
+                <ul>
+                 <li v-for="(instruction, index) in instructions" :key="index">{{ instruction }}</li>
             </ul>
             </div>
         </div>
