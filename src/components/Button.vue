@@ -17,7 +17,7 @@
 
 <style scoped>
 .btn {
-  border: none; /* Remove borders */
+  border: black solid; /* Remove borders */
   color: white; /* Add a text color */
   padding: 14px 28px; /* Add some padding */
   cursor: pointer; /* Add a pointer cursor on mouse-over */

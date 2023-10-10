@@ -3,9 +3,6 @@
   box-sizing: border-box;
 }
 
-
-
-
 /* Globala stilar */
 :root {
 
@@ -78,7 +75,7 @@ body {
 
 .form-group .form-control {
   float: left;
-  width: 75%;
+  width: 30%;
   margin-top: 6px;
 }
 
