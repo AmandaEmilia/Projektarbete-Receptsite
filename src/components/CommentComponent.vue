@@ -2,31 +2,37 @@
 <template>
     <div class="comment">
         <h2>Kommentarer</h2>
-        <div v-if="invalidErrorMsg" class="alert warning">{{ invalidErrorMsg }}</div>
-        <div class="form-group">
-            <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
-        </div>
-        <div class="form-group">
-            <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <button :disabled="!isInputValid" @click="submitComment">Skicka</button>
-        </div>
-        <div v-if="comments.length > 0" >
-            <h3>Befintliga kommentarer</h3>
-      <ul>
-        <li v-for="comment in comments" :key="comment._id">
-          <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
-          <p>{{ comment.comment }}</p>
-        </li>
-      </ul>
+        <Alert v-if="successMsg" alert-type="success" :alert-message="successMsg"></Alert>
+        <div v-else>
+            <Alert v-if="invalidErrorMsg" alert-type="warning" :alert-message="invalidErrorMsg"></Alert>
+            <div class="form-group">
+                <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button :disabled="!isInputValid" @click="submitComment">Skicka</button>
+            </div>
+            <div v-if="comments.length > 0">
+                <h3>Befintliga kommentarer</h3>
+                <ul>
+                    <li v-for="comment in comments" :key="comment._id">
+                        <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
+                        <p>{{ comment.comment }}</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Alert from './Alert.vue';
 export default {
-
+    components: {
+        Alert
+    },
     props: {
         recipeId: String
     },
@@ -35,8 +41,9 @@ export default {
         return {
             commentInput: "",
             nameInput: "",
-            isBtnEnabled: false,
+            isCommentPosting: false,
             comments: [],
+            successMsg: ""
         }
     },
     computed: {
@@ -47,12 +54,13 @@ export default {
 
         },
         isInputValid() {
-            return this.commentInput != "" && this.nameInput != "";
+            return this.commentInput != "" && this.nameInput != "" && this.isCommentPosting == false;
         }
     },
     methods: {
         submitComment() {
-            fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/'+this.recipeId+'/comments', {
+            this.isCommentPosting = true;
+            fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/' + this.recipeId + '/comments', {
                 method: 'POST',
                 body: JSON.stringify({
                     comment: this.commentInput,
@@ -65,24 +73,21 @@ export default {
                 .then((response) => response.json())
                 .then((json) => {
                     console.log(json)
-
+                    this.successMsg = "Tack för din kommentar!"
                 });
         },
-        getAllComments(){
-            fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/'+this.recipeId+'/comments')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.comments = data;
-                
-
-            
-            });
+        getAllComments() {
+            fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/' + this.recipeId + '/comments')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.comments = data;
+                });
         }
 
 
     },
-    mounted(){
+    mounted() {
         this.getAllComments();
     }
 
