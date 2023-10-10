@@ -11,10 +11,12 @@ export default {
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.searchResult = null;
-            const response = await fetch(`${this.$hostname}/categories/${this.$route.params.categoryId}/recipes/?query=${this.searchBoxInput}`);
-            this.searchResult = await response.json();
+            fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/categories/${this.$route.params.categoryId}/recipes/?query=${this.searchBoxInput}`)
+                .then((response) => response.json())
+                .then((data) => { this.searchResult = data })
+
         }
     }
 }
@@ -25,7 +27,7 @@ export default {
 <template>
     <h1>{{ heading }} inom kategori: {{ this.$route.params.categoryId }}</h1>
 
-    <input v-model="searchBoxInput" placeholder="Search within category.." name="search">
+    <input v-model="searchBoxInput" :placeholder="`Search within ${this.$route.params.categoryId}`" name="search">
     <button type="submit" @click="fetchData">{{ heading }}</button>
 
     <div v-for="search in searchResult">
