@@ -6,13 +6,16 @@
         <div v-else>
             <Alert v-if="invalidErrorMsg" alert-type="warning" :alert-message="invalidErrorMsg"></Alert>
             <div class="form-group">
+                <label>Skriv ditt namn</label>            
                 <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
             </div>
             <div class="form-group">
+                <label>Skriv en Kommentar</label>
                 <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <button :disabled="!isInputValid" @click="submitComment">Skicka</button>
+                <!-- <button :disabled="!isInputValid" @click="submitComment">Skicka</button> -->
+                <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
             </div>
             <div v-if="comments.length > 0">
                 <h3>Befintliga kommentarer</h3>
@@ -29,9 +32,11 @@
 
 <script>
 import Alert from './Alert.vue';
+import Button from './Button.vue';
 export default {
     components: {
-        Alert
+        Alert,
+        Button
     },
     props: {
         recipeId: String
