@@ -8,13 +8,16 @@ export default {
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.categories = null;
-            const response = await fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/categories");
-            this.categories = await response.json();
+            fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/categories")
+                .then((response) => response.json())
+                .then((data) => {
+                    this.categories = data;
+                })
         }
     },
-    beforeMount() {
+    mounted() {
         this.fetchData()
     }
 }
