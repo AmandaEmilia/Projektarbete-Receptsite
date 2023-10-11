@@ -19,7 +19,7 @@
 .btn {
   border: black solid; /* Remove borders */
   color: white; /* Add a text color */
-  padding: 14px 28px; /* Add some padding */
+  padding: 5px 10px; /* Add some padding */
   cursor: pointer; /* Add a pointer cursor on mouse-over */
 }
 
