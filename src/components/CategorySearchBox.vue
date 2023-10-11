@@ -28,11 +28,11 @@ export default {
     <input v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
     <button type="submit" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
 
-    <div v-for="search in searchResult" :key="searchResult.id">
+    <div v-for="search in searchResult" :key="searchResult._id">
         <!-- {{ search.title }} -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipe/${search._id}`">{{ search.title }} </RouterLink>
+                <RouterLink :to="`/recipes/${search._id}`">{{ search.title }} </RouterLink>
                 {{ search.ratings }}
             </div>
             <div class="grid-item recipe-img"><img :src="search.imageUrl" alt="picture"></div>

@@ -41,7 +41,7 @@ export default {
     <div v-for="recipe in category">
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipe/${recipe.id}`">{{ recipe.title }}
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}
                     <!-- {{ recipe.avgRating }} -->
                 </RouterLink>
             </div>
