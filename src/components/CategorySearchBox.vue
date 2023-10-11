@@ -4,7 +4,7 @@
 export default {
     data() {
         return {
-            heading: "Sök recept",
+            heading: "Sök ",
             searchBoxInput: "",
             searchResult: [],
             time: "min"
@@ -25,12 +25,10 @@ export default {
 
 
 <template>
-    <h1>{{ heading }} inom kategori: {{ this.$route.params.categoryId }}</h1>
+    <input v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
+    <button type="submit" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
 
-    <input v-model="searchBoxInput" :placeholder="`Search within ${this.$route.params.categoryId}`" name="search">
-    <button type="submit" @click="fetchData">{{ heading }}</button>
-
-    <div v-for="search in searchResult">
+    <div v-for="search in searchResult" :key="searchResult.id">
         <!-- {{ search.title }} -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
