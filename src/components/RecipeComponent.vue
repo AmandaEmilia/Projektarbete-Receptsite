@@ -1,38 +1,75 @@
+
+
 <script>
+
 export default {
+
     data() {
+
         return {
+
             heading: "",
+
             recipe: "",
+
             imageUrl: "",
+
             description: "",
+
             instructions: [],
+
             ingredients: [],
+
             time: "min"
+
         }
+
     },
+
     methods: {
+
         async fetchData() {
+
             this.recipe = null;
 
+ 
+
             fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}`)
+
             .then((response) => response.json())
+
             .then(recipeData => {
+
                 this.recipe = recipeData;
+
                 this.heading = this.recipe.title;
+
                 this.imageUrl = this.recipe.imageUrl;
+
                 this.description = this.recipe.description;
+
                 this.instructions = this.recipe.instructions;
+
                 this.ingredients = this.recipe.ingredients;
+
             });
-    
+
+   
+
         }
+
     },
+
     beforeMount() {
+
         this.fetchData()
+
     }
 
+ 
+
 }
+
 </script>
 
 
@@ -55,7 +92,6 @@ export default {
         </div>
     </main>
 </template>
-
 
 <style>
 
@@ -140,3 +176,4 @@ img {
     border-radius: 10px;
 }
 </style>
+
