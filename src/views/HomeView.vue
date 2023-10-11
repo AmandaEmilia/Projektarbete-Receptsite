@@ -11,6 +11,5 @@ import CategoryListComponent from '../components/CategoryListComponent.vue';
     <CategoryListComponent></CategoryListComponent>
     <AllRecipesComponent></AllRecipesComponent>
       
-    <!-- <CommentComponent></CommentComponent> -->
 </template>
 <style scoped></style>

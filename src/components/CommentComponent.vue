@@ -2,29 +2,34 @@
 <template>
     <div class="comment">
         <h2>Kommentarer</h2>
-        <Alert v-if="successMsg" alert-type="success" :alert-message="successMsg"></Alert>
+        <div v-if="successMsg" class="alert-box">
+            <Alert alert-type="success" :alert-message="successMsg"></Alert>
+        </div>
         <div v-else>
-            <Alert v-if="invalidErrorMsg" alert-type="warning" :alert-message="invalidErrorMsg"></Alert>
+            <div class="alert-box">
+                <Alert v-if="invalidErrorMsg" alert-type="warning" :alert-message="invalidErrorMsg"></Alert>
+            </div>
             <div class="form-group">
-                <label>Skriv ditt namn</label>            
+                <label>Skriv ditt namn</label>
                 <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
             </div>
             <div class="form-group">
                 <label>Skriv en Kommentar</label>
                 <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
             </div>
-            <div class="form-group">
-                <!-- <button :disabled="!isInputValid" @click="submitComment">Skicka</button> -->
+            <div class="center-button">
                 <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
             </div>
-            <div v-if="comments.length > 0">
-                <h3>Befintliga kommentarer</h3>
-                <ul>
-                    <li v-for="comment in comments" :key="comment._id">
-                        <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
-                        <p>{{ comment.comment }}</p>
-                    </li>
-                </ul>
+            <div class="prev-comments">
+                <div v-if="comments.length > 0">
+                    <h3>Befintliga kommentarer</h3>
+                    <ul>
+                        <li v-for="comment in comments" :key="comment._id">
+                            <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
+                            <p>{{ comment.comment }}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -100,5 +105,29 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.prev-comments {
+    color: black;
+
+}
+
+.comment {
+    color: black;
+}
+
+.alert-box {
+    height: 50px;
+}
+
+.prev-comments li {
+    border-bottom: 1px solid black;
+}
+</style>
 
