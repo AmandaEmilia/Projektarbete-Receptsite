@@ -95,14 +95,14 @@ img {
 } */
 
 /* Styla bilder */
-img {
+/* img { */
     /* height: 100px;
     width: 100px;
     float: left;
     margin-right: 10px;
     border-radius: 50%; */
     /* Runda kanterna på bilderna */
-}
+/* } */
 
 /* Styla <div> element med klassen "recipe-head" */
 .recipe-head {
