@@ -73,8 +73,8 @@ export default {
 </script>
 <template>
     <main>
-        <div class="u-container">
-            <div class="u-heading">{{ heading }}</div>
+        <h1 class="u-heading">{{ heading }}</h1>
+        <div class="u-container">  
             <div class="u-description">{{ description }}</div>
             <div class="u-ingredients">
                 <ul>
@@ -93,37 +93,18 @@ export default {
 <style>
 
 /* Styla <h1> elementet */
-h1 {
-    text-align: center;
-    font-size: 36px;
-}
 
-img {
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-}
 
-.u-heading {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 10px;
-
-}
 
 .u-description {
     font-size: cursive;
     grid-column-start: 1;
     grid-column-end: 4;
     font-size: 16px;
-    color: #444;
+    /* color: #444; */
     line-height: 1.4;
     padding: 10px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     /* Lätt bakgrundsfärg */
     border-radius: 10px;
 }
@@ -131,11 +112,11 @@ img {
 .u-ingredients {
     grid-column-start: 1;
     grid-column-end: 2;
-    color: #444;
+    /* color: #444; */
     line-height: 1.4;
     padding: 10px;
     margin-left: 5%;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     /* Lätt bakgrundsfärg */
     border-radius: 10px;
 }
@@ -159,7 +140,7 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
     /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }

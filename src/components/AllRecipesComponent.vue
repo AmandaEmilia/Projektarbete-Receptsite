@@ -89,18 +89,18 @@ img {
 
 
 /* Styla <h1> elementet */
-h1 {
+/* h1 {
     text-align: center;
     font-size: 36px;
-}
+} */
 
 /* Styla bilder */
 img {
-    height: 100px;
+    /* height: 100px;
     width: 100px;
     float: left;
     margin-right: 10px;
-    border-radius: 50%;
+    border-radius: 50%; */
     /* Runda kanterna på bilderna */
 }
 
