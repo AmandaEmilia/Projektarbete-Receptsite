@@ -20,6 +20,10 @@ export default {
 
             ingredients: [],
 
+            amountOfIngredients: 0,
+
+            minutes: 0,
+
             time: "min"
 
         }
@@ -52,6 +56,10 @@ export default {
 
                 this.ingredients = this.recipe.ingredients;
 
+                this.amountOfIngredients = this.recipe.ingredients.length;
+
+                this.minutes = this.recipe.timeInMins;
+
             });
 
    
@@ -71,20 +79,20 @@ export default {
 }
 
 </script>
-
-
 <template>
     <main>
-        <div class="grid-container">
-            <div class="grid-item recipe-head">{{ heading }}</div>
-            <div class="grid-item recipe-img"><img :src="imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-description">{{ description }}</div>
-            <div class="grid-item recipe-main">
+        <h1 class="u-heading">{{ heading }}</h1>
+        <div class="u-container">  
+            <div class="u-description">{{ description }}</div>
+            <div class="u-amountofingredients"> Antal ingredienser: {{ amountOfIngredients }}</div>
+            <div class="u-minutes"> Minuter: {{ minutes }} </div>
+            <div class="u-ingredients">
                 <ul>
                     <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " + ingredient.amount + " " + ingredient.unit }}</li>
                 </ul>
             </div>
-            <div class="grid-item recipe-foot">
+            <div class="u-image"><img :src="imageUrl" alt="picture"></div>
+            <div class="u-instructions">
                 <ul>
                  <li v-for="(instruction, index) in instructions" :key="index">{{ instruction }}</li>
             </ul>
@@ -92,88 +100,81 @@ export default {
         </div>
     </main>
 </template>
-
 <style>
 
 /* Styla <h1> elementet */
-h1 {
-    text-align: center;
-    font-size: 36px;
-}
 
-/* Styla bilder */
-img {
-    height: 100px;
-    width: 100px;
-    float: left;
-    margin-right: 10px;
-    border-radius: 50%;
-    /* Runda kanterna på bilderna */
-}
 
-/* Styla <div> element med klassen "recipe-head" */
-.recipe-head {
-    grid-area: head;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 10px;
-}
 
-/* Styla <div> element med klassen "recipe-img" */
-.recipe-img {
-    grid-area: img;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Styla <div> element med klassen "recipe-main" */
-.recipe-main {
-    grid-area: main;
+.u-description {
+    grid-column-start: 1;
+    grid-column-end: 4;
     font-size: 16px;
+    /* color: #444; */
+    line-height: 1.4;
+    padding: 10px;
+    /* background-color: #f9f9f9; */
+    /* Lätt bakgrundsfärg */
+    border-radius: 10px;
+}
+
+.u-amountofingredients {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.u-minutes {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.u-ingredients {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    /* color: #444; */
+    line-height: 1.4;
+    padding: 10px;
+    margin-left: 5%;
+    /* background-color: #f9f9f9; */
+    /* Lätt bakgrundsfärg */
+    border-radius: 10px;
+}
+
+.u-image {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+
+.u-instructions {
+    grid-column-start: 1;
+    grid-column-end: 4;
     color: #444;
     line-height: 1.4;
     padding: 10px;
+    margin-left: 5%;
     background-color: #f9f9f9;
     /* Lätt bakgrundsfärg */
     border-radius: 10px;
 }
 
-/* Styla <div> element med klassen "recipe-foot" */
-.recipe-foot {
-    grid-area: foot;
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-}
-
-/* Styla alla element med klassen "grid-item" */
-.grid-item {
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Styla <div> element med klassen "grid-container" */
-.grid-container {
+.u-container {
     display: grid;
-    grid-template-areas:
-        'head head head head head head'
-        'main main main main img img'
-        'foot foot foot foot img img';
     grid-gap: 20px;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
     /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
+
+
+/* Styla <div> element med klassen "grid-container" */
+
 </style>
 

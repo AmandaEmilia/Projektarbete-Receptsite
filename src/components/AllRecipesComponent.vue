@@ -1,42 +1,45 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
-<script>
-export default { // Hämtar ut alla recept från API
-    data() {
-        return {
-            heading: "Alla recept",
-            recipes: [],
-            time: "min"
-        }
-    },
-    methods: {
-        async fetchData() {
-            this.recipes = null;
-            const response = await fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes");
-            this.recipes = await response.json();
-        }
-    },
-    beforeMount() {
-        this.fetchData()
-    }
-}
-</script>
-
 <template>
-    <h1>{{ heading }}</h1>
+    <h1>ASIATISKA IT KÖKET</h1>
+    <h>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes">
+    <main v-for="recipe in recipes" :key="recipe._id">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
                 <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-main">{{ recipe.description }}</div>
+            <div class="grid-item recipe-description">{{ recipe.description }}</div>
             <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
         </div>
     </main>
 </template>
+
+<script>
+export default { // Hämtar ut alla recept från API
+    data() {
+        return {
+            heading: "ASIATISKA IT KÖKET",
+            recipes: [],
+            time: "min"
+        }
+    },
+    methods: {
+        fetchData() {
+            this.recipes = null;
+            fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes")
+                .then((response) => response.json())
+                .then((data) => { this.recipes = data })
+        }
+    },
+    mounted() {
+        this.fetchData()
+    }
+}
+</script>
+
 
 <style>
 /*  h1 {
@@ -88,20 +91,20 @@ img {
 
 
 /* Styla <h1> elementet */
-h1 {
+/* h1 {
     text-align: center;
     font-size: 36px;
-}
+} */
 
 /* Styla bilder */
-img {
-    height: 100px;
+/* img { */
+    /* height: 100px;
     width: 100px;
     float: left;
     margin-right: 10px;
-    border-radius: 50%;
+    border-radius: 50%; */
     /* Runda kanterna på bilderna */
-}
+/* } */
 
 /* Styla <div> element med klassen "recipe-head" */
 .recipe-head {
@@ -122,16 +125,16 @@ img {
 }
 
 /* Styla <div> element med klassen "recipe-main" */
-.recipe-main {
+/* .recipe-main {
     grid-area: main;
     font-size: 16px;
     color: #444;
     line-height: 1.4;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; */
     /* Lätt bakgrundsfärg */
-    border-radius: 10px;
-}
+    /* border-radius: 10px;
+} */
 
 /* Styla <div> element med klassen "recipe-foot" */
 .recipe-foot {
@@ -142,13 +145,13 @@ img {
 }
 
 /* Styla alla element med klassen "grid-item" */
-.grid-item {
+/* .grid-item {
     background-color: #fff;
     color: #333;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Styla <div> element med klassen "grid-container" */
 .grid-container {
@@ -163,7 +166,7 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
     /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }

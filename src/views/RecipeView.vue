@@ -1,7 +1,6 @@
 
 
 <template>
-  <h1>RecipeView</h1>
   <RecipeComponent></RecipeComponent>
   <CommentComponent :recipe-id="this.$route.params.recipeId"></CommentComponent>
   <RatingComponent :recipe-id="this.$route.params.recipeId"  :avg-rating="this.$route.params.avgRating" @rating-saved="updateSomethingWhenRateISPosted"></RatingComponent>
