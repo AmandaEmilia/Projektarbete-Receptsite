@@ -6,20 +6,12 @@
 /* Globala stilar */
 
 body {
-  /* font-family: 'Roboto', sans-serif;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: white; */
-
-
-  background-image: url('backgroundpic.png');
+  background-image: url('asian.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
+
 }
 
 /* Huvudkomponenter */
