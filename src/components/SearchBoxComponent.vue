@@ -55,6 +55,7 @@ export default {
 }
 
 #searchbox {
+    color: white;
     font-family: Kameron;
     font-size: 20px;
     background-color: transparent;
