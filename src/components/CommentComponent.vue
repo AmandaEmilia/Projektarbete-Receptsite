@@ -25,7 +25,7 @@
                     <h3>Befintliga kommentarer</h3>
                     <ul>
                         <li v-for="comment in comments" :key="comment._id">
-                            <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
+                            <strong>{{ comment.name }}</strong> - {{ formatDate(comment.createdAt) }}
                             <p>{{ comment.comment }}</p>
                         </li>
                     </ul>
@@ -93,7 +93,16 @@ export default {
                     console.log(data);
                     this.comments = data;
                 });
-        }
+        },
+
+         formatDate(dateString) {
+           const options = {
+           year: 'numeric',
+           month: 'numeric',
+           day: 'numeric',
+      };
+      return new Date(dateString).toLocaleDateString(undefined, options);
+    }
 
 
     },
