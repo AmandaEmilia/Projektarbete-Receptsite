@@ -1,10 +1,27 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
+<template>
+    <h1>ASIATISKA IT KÖKET</h1>
+    <h>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h>
+    <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
+    <main v-for="recipe in recipes" :key="recipe._id">
+        <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
+        <div class="grid-container">
+            <div class="grid-item recipe-head">
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+            </div>
+            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+            <div class="grid-item recipe-description">{{ recipe.description }}</div>
+            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+        </div>
+    </main>
+</template>
+
 <script>
 export default { // Hämtar ut alla recept från API
     data() {
         return {
-            heading: "Alla recept",
+            heading: "ASIATISKA IT KÖKET",
             recipes: [],
             time: "min"
         }
@@ -23,21 +40,6 @@ export default { // Hämtar ut alla recept från API
 }
 </script>
 
-<template>
-    <h1>{{ heading }}</h1>
-    <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes" :key="recipe._id">
-        <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
-            </div>
-            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-main">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
-        </div>
-    </main>
-</template>
 
 <style>
 /*  h1 {
@@ -123,16 +125,16 @@ img {
 }
 
 /* Styla <div> element med klassen "recipe-main" */
-.recipe-main {
+/* .recipe-main {
     grid-area: main;
     font-size: 16px;
     color: #444;
     line-height: 1.4;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; */
     /* Lätt bakgrundsfärg */
-    border-radius: 10px;
-}
+    /* border-radius: 10px;
+} */
 
 /* Styla <div> element med klassen "recipe-foot" */
 .recipe-foot {
@@ -143,13 +145,13 @@ img {
 }
 
 /* Styla alla element med klassen "grid-item" */
-.grid-item {
+/* .grid-item {
     background-color: #fff;
     color: #333;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Styla <div> element med klassen "grid-container" */
 .grid-container {
@@ -164,7 +166,7 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
     /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }

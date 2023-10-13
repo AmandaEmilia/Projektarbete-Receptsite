@@ -29,7 +29,7 @@ main {
   padding: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   color: #FFF;
-  font-family: Italiana;
+  font-family: Kameron;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -46,6 +46,16 @@ font-weight: 400;
 line-height: normal;
 }
 
+h3 {
+color: #FFF;
+text-align: center;
+font-family: Kameron;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
 img {
   height: 100%;
     width: 100%;
@@ -53,6 +63,15 @@ img {
     margin-right: 10px;
     border-radius: 50%;
     border: #ED163B 2px solid;
+}
+
+.grid-item .recipe-description {
+color: #FFF;
+font-family: Kameron;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
 /* Specifika komponenter */
