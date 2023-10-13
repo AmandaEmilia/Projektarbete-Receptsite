@@ -18,17 +18,19 @@ export default {
     }
 }
 </script>
-
 <template>
     <div class="greetings">
-        <input id="searchbox" type="text" placeholder="Search..">
-        <button type="input" id="btn" @click="fetchData">Search</button>
+        <h1 class="green">{{ heading }}</h1>
+        <form class="formwrapper">
+            <input type="text" id="searchbox" placeholder="Search for..." required>
+            <input type="submit" value="go" id="btn" @click="fetchData">
+        </form>
     </div>
     <main v-for="recipe in recipes">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ recipe.description }}</div>
