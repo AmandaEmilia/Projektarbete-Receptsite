@@ -5,7 +5,6 @@ import RatingComponent from "../components/RatingComponent.vue";
 </script>
 
 <template>
-  <h1>RecipeView</h1>
   <RecipeComponent></RecipeComponent>
   <CommentComponent :recipe-id="this.$route.params.recipeId"></CommentComponent>
   <RatingComponent></RatingComponent>

@@ -4,35 +4,74 @@
 }
 
 /* Globala stilar */
-:root {
-
-  --asian-text-color: #ffffff;
-}
 
 body {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  color: var(--asian-text-color);
+  color: white; */
 
-  background-image: url('fish.jpg');
+
+  background-image: url('backgroundpic.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
-
 }
 
 /* Huvudkomponenter */
-.header,
-.aside,
-.main {
-  background-color: white;
+
+main {
+  /* background-color: white;
   padding: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  color: #FFF;
+  font-family: Kameron;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h1 {
+color: #FFF;
+text-align: center;
+font-family: Italiana;
+font-size: 50px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+h3 {
+color: #FFF;
+text-align: center;
+font-family: Kameron;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+img {
+  height: 100%;
+    width: 100%;
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: #ED163B 2px solid;
+}
+
+.grid-item .recipe-description {
+color: #FFF;
+font-family: Kameron;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
 /* Specifika komponenter */
@@ -75,7 +114,7 @@ body {
 
 .form-group .form-control {
   float: left;
-  width: 30%;
+  width: 35%;
   margin-top: 6px;
 }
 

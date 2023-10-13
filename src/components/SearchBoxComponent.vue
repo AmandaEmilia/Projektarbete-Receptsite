@@ -21,7 +21,6 @@ export default {
 
 <template>
     <div class="greetings">
-        <h1 class="green">{{ heading }}</h1>
         <input id="searchbox" type="text" placeholder="Search..">
         <button type="input" id="btn" @click="fetchData">Search</button>
     </div>
