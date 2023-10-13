@@ -263,18 +263,13 @@ h3 {
 
 
 <template>
-  <span class="star" @click="rateRecipe(1)"> ★ </span>
-  <span class="star" @click="rateRecipe(2)"> ★ </span>
-  <span class="star" @click="rateRecipe(3)"> ★ </span>
-  <span class="star" @click="rateRecipe(4)"> ★ </span>
-  <span class="star" @click="rateRecipe(5)"> ★ </span>
-  <span class="star" @click="rateRecipe(6)"> ★ </span>
+  <span class="star" @click="rateRecipe(1)" v-bind:class="updateRating(1)"> ★ </span>
+  <span class="star" @click="rateRecipe(2)" v-bind:class="updateRating(2)"> ★ </span>
+  <span class="star" @click="rateRecipe(3)" v-bind:class="updateRating(3)"> ★ </span>
+  <span class="star" @click="rateRecipe(4)" v-bind:class="updateRating(4)"> ★ </span>
+  <span class="star" @click="rateRecipe(5)" v-bind:class="updateRating(5)"> ★ </span>
 
-  <Alert
-    v-if="successMsg"
-    alert-type="success"
-    :alert-message="successMsg"
-  ></Alert>
+  <Alert v-if="successMsg" alert-type="success" :alert-message="successMsg"></Alert>
   <Alert v-if="errorMsg" alert-type="danger" :alert-message="errorMsg"></Alert>
 </template>
 
@@ -331,11 +326,16 @@ export default {
           console.error("Fetch-fel:", error);
         });
     },
+    updateRating(value) {
+      if (value <= this.avgRating) {
+        return 'star checked'
+      }
+    }
   },
   emits: ["ratingSaved"],
 
   props: {
-   // avgRating: Number,
+    avgRating: Number,
     recipeId: String,
   },
 };
@@ -344,6 +344,16 @@ export default {
 <style>
 .star {
   color: darkblue;
+  font-size: 42px;
+}
+
+.star:hover {
+  color: whitesmoke;
+  font-size: 42px;
+}
+
+.checked {
+  color: red;
   font-size: 42px;
 }
 </style>
