@@ -1,112 +1,16 @@
-<!-- Task Rating-->
-
 <!-- <template>
-  <div class="recipe-rating">
-    <h3>Vad tyckte du om receptet?</h3>
-
-    <h6>
-      Klicka på en stjärna för att ge ditt betyg!
-    </h6>
-    
-    <p>Recept ID: {{ recipeId }}</p>
-
-    <span
-      v-for="star in stars"
-      :key="star"
-      @click="rateRecipe(star)"
-      :class="{ filled: star <= rating }"
-      >&#9733;</span
-    > 
-  </div>
-</template>
-  
-<script>
-export default {
-  props: ["initialValue", "recipeId"],
-  data() {
-    return {
-      showThankYouMessage: false,
-      stars: [1, 2, 3, 4, 5],
-      rating: this.initialValue,
-      recipeId: this.recipeId,
-    };
-  },
-  methods: {
-    async rateRecipe(star) {
-
-      this.rating = star;
-      const dataToSend = {
-        rating: star,
-      
-      };
-
-      const jsonData = JSON.stringify(dataToSend);
-
-      try {
-        const response = await fetch(
-          `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.recipeId}/ratings`,
-          {
-            method: "POST",
-            body: jsonData,
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error('Något gick fel med POST-anropet');
-        }
-
-        const updatedData = await response.json();
-        this.recipes.avgRating = updatedData.newAvgRating;
-
-        this.showRatingMessage = true;
-        console.log('Receptbetyget har uppdaterats', updatedData);
-
-      } catch (error) {
-        console.error('Det uppstod ett fel vid POST-anropet', error);
-      }
-    },
-  },
-};
-</script> -->
-
-<template>
-  <div v-if="recipes">
+  <div>
     <h1>Vad tyckte du om receptet?</h1>
-    <div>
-      <p>Receptnamn: {{ recipes.title }}</p>
-      <p>AvgRating: {{ recipes.avgRating }}</p>
-    </div>
-    <div>
-      <!--Visar rating för receptet-->
-      <span
-        v-for="star in convertRatingToStars(recipes.avgRating).filled"
-        :key="star"
-        class="filled-star"
-        >&#9733;</span
-      >
-      <span
-        v-for="star in convertRatingToStars(recipes.avgRating).empty"
-        :key="star"
-        class="empty-star"
-        >&#9733;</span
-      >
-    </div>
-    <div>
-      <!-- Visa tomma stjärnor som användaren kan klicka på -->
+  </div>
+  <div>
       <span
         v-for="star in 5"
         :key="star"
         @click="rateRecipe(star)"
-        class="empty-star"
-        >&#9733;</span
-      >
+        :class="{ filled: star >= rating }"
+        >&#9733;</span>
     </div>
-  </div>
 </template>
-
 
 <script>
 export default {
@@ -115,93 +19,47 @@ export default {
   },
   data() {
     return {
-      recipes: "",
+      rating: 0, 
+      thankYouMsg: "", 
     };
   },
+
   methods: {
-    async fetchData() {
-      this.recipes = null;
-      const response = await fetch(
-        "https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se " +
-          this.recipeId
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-              this.recipes = data;
-            })
-      );
-    },
-
-    convertRatingToStars(rating) {
-      const filledStars = Math.round(rating);
-      const emptyStars = 5 - filledStars;
-
-      return {
-        filled: filledStars,
-        empty: emptyStars,
-      };
-    },
-    async rateRecipe(star) {
-      // Beräkna det nya betyget baserat på användarens klick
-      const newRating = star;
-
-      const dataToSend = {
-        rating: newRating,
-      };
-
-      const jsonData = JSON.stringify(dataToSend);
-
-      try {
-        /* const response = await fetch(
-      `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.recipes._id}/ratings`,
-      {
-        method: "POST",
-        body: jsonData,
+    rateRecipe(star) {
+      fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/' + this.recipeId + '/ratings', {
+        method: 'POST',
+        body: JSON.stringify({
+          rating: star,
+        }),
         headers: {
-          "Content-type": "application/json"
+          'Content-type': 'application/json; charset=UTF-8',
         },
-      }
-    ); */
+      })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        this.thankYouMsg = "Tack för din kommentar!";
+      });
+    },
 
-        fetch(
-          `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.recipes._id}/ratings`,
-          {
-            method: "POST",
-            body: JSON.stringify({
-              avgRating: "newRating",
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
-          .then((response) => response.json())
-          .then((json) => console.log(json));
-
-        if (!response.ok) {
-          throw new Error("Något gick fel med POST-anropet");
-        }
-
-        const updatedData = await response.json();
-
-        this.recipes.avgRating = updatedData.newAvgRating;
-        this.rating = newRating;
-
-        console.log("Receptbetyget har uppdaterats", updatedData);
-      } catch (error) {
-        console.error("Det uppstod ett fel vid POST-anropet", error);
-      }
+    getRating() {
+      fetch('https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/' + this.recipeId + '/ratings')
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.ratings = data;
+        });
     },
   },
-  beforeMount() {
-    this.fetchData();
+
+  mounted() {
+    this.getRating();
   },
 };
 </script>
 
-  
 <style scoped>
-.filled-star {
+.filled {
   color: #d8600a; /* Färg för fyllda stjärnor */
 }
 .empty-star {
@@ -213,7 +71,279 @@ export default {
   color: #ffcc00; /* Ange den klickade färgen här */
 }
 </style>
+ -->
+<!-- 
+<template>
+  <div>
+    <h3>Ratingen är: {{ recipe.avgRating }}</h3> 
+  </div>
+      <div>
+        <h1>Vad tyckte du om receptet?</h1>
+      </div>
+  <div class="star-box">
+    <span
+      class="star"
+      v-for="star in 5"
+      :key="star"
+      @click="rateRecipe(star)"
+      
+    >
+      &#9733;</span
+    >
+  </div>
+</template>
 
+<script>
+export default {
+  props:{
+      avgRating: Number
+    },
+
+  data() {
+    
+    return {
+      star: null,
+      recipe: {
+        avgRating: 0,
+      }
+    };
+  },
+  methods: {
+    rateRecipe(star) {
+
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rating: star }),
+      };
+
+      fetch(
+        `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}/ratings`,
+        requestOptions
+      ).then((data) => this.recipe.avgRating = data.avgRating);
+
+      console.log(star);
+    },
+
+    getRating() {
+      
+      fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}/ratings`)
+        .then((response) => response.json())
+        
+        .then((data) => {
+          this.recipe.avgRating = data.avgRating;
+        }); 
+    },
   
+  },
+     mounted() {
+    this.getRating();
+  },  
+};
+
+</script>
+
+<style scoped>
+.star-box{
+  padding-left: 40%;
+}
+
+.star {
+  color: rgb(123, 144, 173);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+h3{
+  color: darkolivegreen;
+}
+
+.star:active{
+  color: rgb(150, 91, 15);
+
+}
+
+.filled {
+  color: #d8600a;
+}
+</style> 
 
 
+<template>
+  <div>
+    <h2 style="color: rgb(49, 27, 27)">
+      Aktuell rating: {{ avgRating }}
+    </h2>
+    <div class="star-box">
+      <span
+        class="star"
+        v-for="star in 5"
+        :key="star"
+        @click="rateRecipe(star)"
+        :class="{ filled: star <= currentRating }"
+      >
+        &#9733;
+      </span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    recipeId: String,
+    avgRating: Number,
+  },
+  data() {
+    return {
+      currentRating: null,
+    };
+  },
+  mounted() {
+  this.getRating();
+  },
+  methods: {
+    getRating() {
+      fetch(
+        `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}/ratings`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          this.currentRating = data.avgRating;
+
+          console.log(this.currentRating);
+        });
+    },
+    rateRecipe(star) {
+      star = JSON.parse(`{"rating":${star}}`);
+      fetch(
+        `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}/ratings`,
+        {
+          method: "POST",
+          body: JSON.stringify(star),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          
+        });
+    },
+  },
+};
+</script>
+<style scoped>
+.star-box {
+  padding-left: 40%;
+}
+
+.star {
+  color: rgb(123, 144, 173);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+h3 {
+  color: darkolivegreen;
+}
+
+.star:active {
+  color: rgb(150, 91, 15);
+}
+
+.filled {
+  color: #d8600a;
+}
+</style> 
+-->
+
+
+<template>
+  <span class="star" @click="rateRecipe(1)"> ★ </span>
+  <span class="star" @click="rateRecipe(2)"> ★ </span>
+  <span class="star" @click="rateRecipe(3)"> ★ </span>
+  <span class="star" @click="rateRecipe(4)"> ★ </span>
+  <span class="star" @click="rateRecipe(5)"> ★ </span>
+  <span class="star" @click="rateRecipe(6)"> ★ </span>
+
+  <Alert
+    v-if="successMsg"
+    alert-type="success"
+    :alert-message="successMsg"
+  ></Alert>
+  <Alert v-if="errorMsg" alert-type="danger" :alert-message="errorMsg"></Alert>
+</template>
+
+<script>
+import Alert from "./Alert.vue";
+export default {
+  components: {
+    Alert,
+  },
+  data() {
+    return {
+      rating: null,
+      errorMsg: null,
+      successMsg: "",
+    };
+  },
+
+  methods: {
+    async rateRecipe(ratingToSet) {
+      console.log(ratingToSet);
+      let rateObj = { rating: ratingToSet };
+
+      console.log(rateObj);
+
+      console.log(this.recipeId);
+
+      fetch(
+        `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.recipeId}/ratings`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(rateObj),
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            console.log(response);
+          }
+          return response.text();
+        })
+        .then((responseText) => {
+          if (!responseText) {
+            this.successMsg = "Tack för din rating!"
+            console.log("Tack för din rating");
+            this.$emit("ratingSaved");
+          } else {
+            this.errorMsg = responseText;
+            console.log("Felmeddelande: ", responseText);
+          }
+        })
+        .catch((error) => {
+          console.error("Fetch-fel:", error);
+        });
+    },
+  },
+  emits: ["ratingSaved"],
+
+  props: {
+   // avgRating: Number,
+    recipeId: String,
+  },
+};
+</script>
+
+<style>
+.star {
+  color: darkblue;
+  font-size: 42px;
+}
+</style>
