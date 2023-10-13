@@ -2,8 +2,8 @@
 <template>
     <div class="gradient-background">
         <nav v-for="category in categories" :key="categories._id">
-            <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
-        </nav>
+        <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
+    </nav>
     </div>
 </template>
 
@@ -29,7 +29,5 @@ export default {
         this.fetchData()
     }
 }
-
 </script>
-
 
