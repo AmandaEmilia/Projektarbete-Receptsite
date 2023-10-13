@@ -36,33 +36,33 @@ export default {
 
             this.recipe = null;
 
- 
+
 
             fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}`)
 
-            .then((response) => response.json())
+                .then((response) => response.json())
 
-            .then(recipeData => {
+                .then(recipeData => {
 
-                this.recipe = recipeData;
+                    this.recipe = recipeData;
 
-                this.heading = this.recipe.title;
+                    this.heading = this.recipe.title;
 
-                this.imageUrl = this.recipe.imageUrl;
+                    this.imageUrl = this.recipe.imageUrl;
 
-                this.description = this.recipe.description;
+                    this.description = this.recipe.description;
 
-                this.instructions = this.recipe.instructions;
+                    this.instructions = this.recipe.instructions;
 
-                this.ingredients = this.recipe.ingredients;
+                    this.ingredients = this.recipe.ingredients;
 
-                this.amountOfIngredients = this.recipe.ingredients.length;
+                    this.amountOfIngredients = this.recipe.ingredients.length;
 
-                this.minutes = this.recipe.timeInMins;
+                    this.minutes = this.recipe.timeInMins;
 
-            });
+                });
 
-   
+
 
         }
 
@@ -74,7 +74,7 @@ export default {
 
     }
 
- 
+
 
 }
 
@@ -82,26 +82,26 @@ export default {
 <template>
     <main>
         <h1 class="u-heading">{{ heading }}</h1>
-        <div class="u-container">  
+        <div class="u-container">
             <div class="u-description">{{ description }}</div>
             <div class="u-amountofingredients"> Antal ingredienser: {{ amountOfIngredients }}</div>
             <div class="u-minutes"> Minuter: {{ minutes }} </div>
             <div class="u-ingredients">
                 <ul>
-                    <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " + ingredient.amount + " " + ingredient.unit }}</li>
+                    <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " +
+                        ingredient.amount + " " + ingredient.unit }}</li>
                 </ul>
             </div>
             <div class="u-image"><img :src="imageUrl" alt="picture"></div>
             <div class="u-instructions">
                 <ul>
-                 <li v-for="(instruction, index) in instructions" :key="index">{{ instruction }}</li>
-            </ul>
+                    <li v-for="(instruction, index) in instructions" :key="index">{{ instruction }}</li>
+                </ul>
             </div>
         </div>
     </main>
 </template>
-<style>
-
+<style scoped>
 /* Styla <h1> elementet */
 
 
@@ -175,6 +175,5 @@ export default {
 
 
 /* Styla <div> element med klassen "grid-container" */
-
 </style>
 

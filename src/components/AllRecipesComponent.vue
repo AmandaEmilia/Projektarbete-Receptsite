@@ -1,18 +1,19 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
 <template>
-    <h1>ASIATISKA IT KÖKET</h1>
-    <h>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
     <main v-for="recipe in recipes" :key="recipe._id">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+        <div class="gradient-background">
+            <div class="grid-container">
+                <div class="grid-item recipe-head">
+                    <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+                </div>
+                <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+                <div class="grid-item recipe-description">{{ recipe.description }}</div>
+                <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
             </div>
-            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-description">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+
         </div>
     </main>
 </template>
@@ -98,12 +99,12 @@ img {
 
 /* Styla bilder */
 /* img { */
-    /* height: 100px;
+/* height: 100px;
     width: 100px;
     float: left;
     margin-right: 10px;
     border-radius: 50%; */
-    /* Runda kanterna på bilderna */
+/* Runda kanterna på bilderna */
 /* } */
 
 /* Styla <div> element med klassen "recipe-head" */
@@ -122,6 +123,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 60%;
 }
 
 /* Styla <div> element med klassen "recipe-main" */
@@ -132,15 +134,14 @@ img {
     line-height: 1.4;
     padding: 10px;
     background-color: #f9f9f9; */
-    /* Lätt bakgrundsfärg */
-    /* border-radius: 10px;
+/* Lätt bakgrundsfärg */
+/* border-radius: 10px;
 } */
 
 /* Styla <div> element med klassen "recipe-foot" */
 .recipe-foot {
     grid-area: foot;
     font-size: 14px;
-    color: #666;
     margin-top: 10px;
 }
 
@@ -170,4 +171,6 @@ img {
     /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
+
+
 </style>

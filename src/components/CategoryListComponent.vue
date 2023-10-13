@@ -1,4 +1,12 @@
 <!-- Task 2.5 Lista Kategorier-->
+<template>
+    <div class="gradient-background">
+        <nav v-for="category in categories" :key="categories._id">
+            <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
+        </nav>
+    </div>
+</template>
+
 <script>
 export default {
     data() {
@@ -25,9 +33,3 @@ export default {
 </script>
 
 
-<template>
-
-    <nav v-for="category in categories" :key="categories._id">
-        <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
-    </nav>
-</template>
