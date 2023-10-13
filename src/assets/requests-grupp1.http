@@ -106,9 +106,9 @@ GET {{baseUrl}}/categories/Förrätt/recipes HTTP/1.1
 GET {{baseUrl}}/categories/Förrätt/recipes?query=brus HTTP/1.1
 
 ###
-
+# https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/6516e40199612c970cb3f4b2/ratings
 # Lägger till ett omdöme (1-5) för ett recept
-POST {{baseUrl}}/recipes/632da30c6e7766b37d983811/ratings
+POST {{baseUrl}}/recipes/6516e40199612c970cb3f4b2/ratings
 Content-Type: application/json
 
 {

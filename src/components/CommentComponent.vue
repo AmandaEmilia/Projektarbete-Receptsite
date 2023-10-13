@@ -36,16 +36,16 @@
 </template>
 
 <script>
-import Alert from './Alert.vue';
-import Button from './Button.vue';
+import Alert from "./Alert.vue";
+import Button from "./Button.vue";
 export default {
-    components: {
-        Alert,
-        Button
-    },
-    props: {
-        recipeId: String
-    },
+  components: {
+    Alert,
+    Button,
+  },
+  props: {
+    recipeId: String,
+  },
 
     data() {
         return {
