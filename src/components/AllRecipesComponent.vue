@@ -10,13 +10,14 @@ export default { // Hämtar ut alla recept från API
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.recipes = null;
-            const response = await fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes");
-            this.recipes = await response.json();
+            fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes")
+                .then((response) => response.json())
+                .then((data) => { this.recipes = data })
         }
     },
-    beforeMount() {
+    mounted() {
         this.fetchData()
     }
 }
@@ -25,11 +26,11 @@ export default { // Hämtar ut alla recept från API
 <template>
     <h1>{{ heading }}</h1>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes">
+    <main v-for="recipe in recipes" :key="recipe._id">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ recipe.description }}</div>
@@ -91,9 +92,6 @@ img {
 h1 {
     text-align: center;
     font-size: 36px;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 /* Styla bilder */

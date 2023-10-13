@@ -73,7 +73,7 @@ GET {{baseUrl}}/recipes?query=toas HTTP/1.1
 ###
 
 # Hämtar ett enskilt recept
-GET {{baseUrl}}/recipes/632d9fcb6e7766b37d9837f5 HTTP/1.1
+GET {{baseUrl}}/recipes/632da30c6e7766b37d983811 HTTP/1.1
 
 ###
 
@@ -117,12 +117,12 @@ Content-Type: application/json
 ###
 
 # Hämtar alla kommentarer för ett recept
-GET {{baseUrl}}/recipes/632da30c6e7766b37d983811/comments
+GET {{baseUrl}}/recipes/6516c7f399612c970cb3f452/comments
 
 ###
 
 # Lägger till en kommentar för ett recept
-POST {{baseUrl}}/recipes/632da30c6e7766b37d983811/comments
+POST {{baseUrl}}/recipes/6516c7f399612c970cb3f452/comments
 Content-Type: application/json
 
 {
