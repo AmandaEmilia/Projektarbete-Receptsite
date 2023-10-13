@@ -2,27 +2,24 @@
 
 <template>
   <RecipeComponent></RecipeComponent>
+  <RatingComponent :recipe-id="this.$route.params.recipeId" :avg-rating="this.$route.params.avgRating"
+    @rating-saved="updateSomethingWhenRateISPosted"></RatingComponent>
   <CommentComponent :recipe-id="this.$route.params.recipeId"></CommentComponent>
-  <RatingComponent
-    :recipe-id="this.$route.params.recipeId"
-    :avg-rating="this.$route.params.avgRating"
-    @rating-saved="updateSomethingWhenRateISPosted"
-  ></RatingComponent>
-  <AvgRatingComponent :avg-rating="avgRating"></AvgRatingComponent>
+  <!-- <AvgRatingComponent :avg-rating="avgRating"></AvgRatingComponent> -->
 </template>
 
 <script>
 import CommentComponent from "../components/CommentComponent.vue";
 import RecipeComponent from "../components/RecipeComponent.vue";
 import RatingComponent from "../components/RatingComponent.vue";
-import AvgRatingComponent from "../components/AvgRatingComponent.vue";
+// import AvgRatingComponent from "../components/AvgRatingComponent.vue";
 
 export default {
   components: {
     CommentComponent,
     RecipeComponent,
     RatingComponent,
-    AvgRatingComponent,
+    // AvgRatingComponent,
   },
   data() {
     return {

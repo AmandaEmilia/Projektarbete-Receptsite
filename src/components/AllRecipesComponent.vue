@@ -1,24 +1,31 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
 <template>
-    <h1>ASIATISKA IT KÖKET</h1>
-    <h>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h>
+    <!-- <h1>{{ heading }}</h1> -->
+    <!-- <h1>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h1> -->
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
     <main v-for="recipe in recipes" :key="recipe._id">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="grid-container">
             <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }} {{ recipe.ratings }}</RouterLink>
+                <RouterLink :to="`/recipes/${recipe._id}/${recipe.avgRating}`">{{ recipe.title }} {{ recipe.ratings }}
+                </RouterLink>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-description">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
+                <RatingComponent></RatingComponent>
+            </div>
         </div>
     </main>
 </template>
 
 <script>
-export default { // Hämtar ut alla recept från API
+import RatingComponent from './RatingComponent.vue';
+export default {
+    components: {
+        RatingComponent
+    },
     data() {
         return {
             heading: "ASIATISKA IT KÖKET",
@@ -98,12 +105,12 @@ img {
 
 /* Styla bilder */
 /* img { */
-    /* height: 100px;
+/* height: 100px;
     width: 100px;
     float: left;
     margin-right: 10px;
     border-radius: 50%; */
-    /* Runda kanterna på bilderna */
+/* Runda kanterna på bilderna */
 /* } */
 
 /* Styla <div> element med klassen "recipe-head" */
@@ -132,8 +139,8 @@ img {
     line-height: 1.4;
     padding: 10px;
     background-color: #f9f9f9; */
-    /* Lätt bakgrundsfärg */
-    /* border-radius: 10px;
+/* Lätt bakgrundsfärg */
+/* border-radius: 10px;
 } */
 
 /* Styla <div> element med klassen "recipe-foot" */
