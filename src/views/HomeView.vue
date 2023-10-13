@@ -1,7 +1,5 @@
 <template>
   <!-- <h1>HomeView</h1> -->
-  <h1>{{ heading }}</h1>
-  <h1>{{ info }}</h1>
   <SearchBoxComponent></SearchBoxComponent>
   <CategoryListComponent></CategoryListComponent>
   <AllRecipesComponent></AllRecipesComponent>
@@ -17,12 +15,6 @@ export default {
     SearchBoxComponent,
     AllRecipesComponent,
     CategoryListComponent,
-  },
-  data() {
-    return {
-      heading: "ASIATISKA IT KÖKET",
-      info: "Välkommen till den unika receptsidan för dig som gillar mat från Asien"
-    }
   }
 };
 </script>
