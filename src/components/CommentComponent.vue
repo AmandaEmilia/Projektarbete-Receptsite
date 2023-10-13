@@ -116,6 +116,7 @@ export default {
 
 <style scoped>
 .comment-box{
+
     margin-left: 30%;
   
 
