@@ -1,7 +1,7 @@
 <!-- Task 2.4  Söka Recept-->
 <template>
     <div class="main-grid">
-        <h1>ASIATISKA IT KÖKET</h1>
+        <h1>ASIATISKA IT-KÖKET</h1>
         <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
         <div class="greetings">
             <form>
@@ -50,61 +50,48 @@ export default {
 <style scoped>
 .greetings {
     width: 50%;
-    flex-shrink: 0;
     border-radius: 55px;
     background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
 }
 
 #searchbox {
-    color: #FFF;
     font-family: Kameron;
     font-size: 20px;
     background-color: transparent;
     border: none;
-    display: grid;
-
+    width: 60%;
+    margin-right: 8%;
 }
 
 #btn {
-    border: #ED163B 2px solid;
-    height: 50px;
+    border: #ED163B 1px solid;
     background: transparent;
-    border: none;
     color: white;
+    vertical-align: middle;
 }
 
 #search-icon {
     color: #ED163B;
     width: 3%;
-    
+    margin-left: 10%;
+    margin-top: 3%;    
 }
 
 .main-grid {
     display: grid;
-    grid-template-rows: auto auto auto;
-    /* Tre rader: en för h1, en för h3, och en för sökformuläret */
     gap: 10px;
-    /* Avstånd mellan rader och kolumner */
     justify-items: center;
-    /* Centrera element horisontellt */
-    text-align: center;
-    /* Centrera text inom elementen */
 }
 
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* Anpassa kolumnbredden till innehållet */
-    gap: 20px;
-    /* Avstånd mellan receptelement */
+    gap: 10px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-rows: auto auto auto auto;
-    /* Fyra rader för receptelement */
-    gap: 10px;
-    /* Avstånd mellan rader och kolumner */
+    gap: 5px;
     text-align: center;
 }
 </style>
