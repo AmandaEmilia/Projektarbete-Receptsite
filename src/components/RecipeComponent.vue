@@ -20,6 +20,10 @@ export default {
 
             ingredients: [],
 
+            amountOfIngredients: 0,
+
+            minutes: 0,
+
             time: "min"
 
         }
@@ -52,6 +56,10 @@ export default {
 
                 this.ingredients = this.recipe.ingredients;
 
+                this.amountOfIngredients = this.recipe.ingredients.length;
+
+                this.minutes = this.recipe.timeInMins;
+
             });
 
    
@@ -76,6 +84,8 @@ export default {
         <div class="u-container">
             <div class="u-heading">{{ heading }}</div>
             <div class="u-description">{{ description }}</div>
+            <div class="u-amountofingredients"> Antal ingredienser: {{ amountOfIngredients }}</div>
+            <div class="u-minutes"> Minuter: {{ minutes }} </div>
             <div class="u-ingredients">
                 <ul>
                     <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " + ingredient.amount + " " + ingredient.unit }}</li>
@@ -116,7 +126,6 @@ img {
 }
 
 .u-description {
-    font-size: cursive;
     grid-column-start: 1;
     grid-column-end: 4;
     font-size: 16px;
@@ -126,6 +135,18 @@ img {
     background-color: #f9f9f9;
     /* Lätt bakgrundsfärg */
     border-radius: 10px;
+}
+
+.u-amountofingredients {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.u-minutes {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .u-ingredients {
@@ -149,6 +170,13 @@ img {
 .u-instructions {
     grid-column-start: 1;
     grid-column-end: 4;
+    color: #444;
+    line-height: 1.4;
+    padding: 10px;
+    margin-left: 5%;
+    background-color: #f9f9f9;
+    /* Lätt bakgrundsfärg */
+    border-radius: 10px;
 }
 
 .u-container {
