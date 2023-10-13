@@ -343,7 +343,7 @@ export default {
 
 <style>
 .star {
-  color: darkblue;
+  color: orange;
   font-size: 42px;
 }
 

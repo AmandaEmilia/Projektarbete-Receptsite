@@ -1,4 +1,9 @@
 <!-- Task 2.5 Lista Kategorier-->
+<template>
+    <nav v-for="category in categories" :key="categories._id">
+        <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
+    </nav>
+</template>
 <script>
 export default {
     data() {
@@ -21,13 +26,4 @@ export default {
         this.fetchData()
     }
 }
-
 </script>
-
-
-<template>
-
-    <nav v-for="category in categories" :key="categories._id">
-        <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
-    </nav>
-</template>
