@@ -15,7 +15,7 @@ export default {
         }
     },
     props: {
-        avgRating: String
+        avgRating: String,
     }
 }
 </script>

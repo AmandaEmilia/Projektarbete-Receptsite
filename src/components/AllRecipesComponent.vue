@@ -15,7 +15,7 @@
                     <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                     <div class="grid-item recipe-description">{{ recipe.description }}</div>
                     <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                        <StarComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`">
+                        <StarComponent :avg-rating="`${recipe.avgRating}`">
                         </StarComponent>
                     </div>
                 </div>
@@ -25,11 +25,9 @@
 </template>
 
 <script>
-import RatingComponent from './RatingComponent.vue';
 import StarComponent from './StarComponent.vue'
 export default {
     components: {
-        RatingComponent,
         StarComponent
     },
     data() {
