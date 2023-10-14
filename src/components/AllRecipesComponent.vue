@@ -9,7 +9,7 @@
         <div class="gradient-background">
             <div class="grid-container">
                 <div class="grid-item recipe-head">
-                    <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
                 </div>
                 <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="grid-item recipe-description">{{ recipe.description }}</div>
