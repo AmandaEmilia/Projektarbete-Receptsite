@@ -1,5 +1,7 @@
 
 <template>
+  <h3>Vad tyckte du om receptet? </h3>
+  <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
   <span class="star" @click="rateRecipe(1)" v-bind:class="updateRating(1)"> ★ </span>
   <span class="star" @click="rateRecipe(2)" v-bind:class="updateRating(2)"> ★ </span>
   <span class="star" @click="rateRecipe(3)" v-bind:class="updateRating(3)"> ★ </span>
@@ -28,11 +30,6 @@ export default {
     async rateRecipe(ratingToSet) {
       console.log(ratingToSet);
       let rateObj = { rating: ratingToSet };
-
-      console.log(rateObj);
-
-      console.log(this.recipeId);
-
       fetch(
         `https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.recipeId}/ratings`,
         {
@@ -52,7 +49,6 @@ export default {
         .then((responseText) => {
           if (!responseText) {
             this.successMsg = "Tack för din rating!"
-            console.log("Tack för din rating");
             this.$emit("ratingSaved");
           } else {
             this.errorMsg = responseText;
