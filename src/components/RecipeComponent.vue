@@ -18,6 +18,8 @@
                 </ul>
             </div>
         </div>
+        <RatingComponent :recipe-id="this.$route.params.recipeId" @rating-saved="updateSomethingWhenRateISPosted">
+        </RatingComponent>
     </main>
 </template>
 <script>
