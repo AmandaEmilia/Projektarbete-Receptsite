@@ -1,6 +1,7 @@
 <template>
     <h1>{{ this.$route.params.categoryId }}</h1>
-    <div v-for="recipe in category" :key="recipe._id">
+
+    <!-- <div v-for="recipe in category" :key="recipe._id">
         <div class="grid-container">
             <div class="grid-item recipe-head">
                 <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
@@ -8,21 +9,40 @@
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ recipe.description }}</div>
             <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
-            <RatingComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`">
-            </RatingComponent>
+            <StarComponent :avg-rating="`${recipe.avgRating}`"></StarComponent>
         </div>
-    </div>
+    </div> -->
+
+
+    <main v-if="category">
+        <div v-for="recipe in category" :key="recipe._id">
+            <div class="gradient-background">
+                <div class="grid-container">
+                    <div class="grid-item recipe-head">
+                        <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    </div>
+                    <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+                    <div class="grid-item recipe-description">{{ recipe.description }}</div>
+                    <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
+                        <StarComponent :avg-rating="`${recipe.avgRating}`">
+                        </StarComponent>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
 <script>
-import RatingComponent from './RatingComponent.vue';
+import StarComponent from './StarComponent.vue';
 export default {
     components: {
-        RatingComponent
+        StarComponent
     },
     data() {
         return {
             category: "",
-            categoryId: ""
+            categoryId: "",
+            time: "min"
         }
     },
     methods: {
