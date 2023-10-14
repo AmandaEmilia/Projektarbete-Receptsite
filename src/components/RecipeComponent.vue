@@ -8,8 +8,8 @@
             <div class="u-minutes"> {{ time }} {{ recipe.timeInMins }} </div>
             <div class="u-ingredients" v-if="recipe.ingredients">
                 <ul>
-                    <li v-for="ingredient in recipe.ingredients" :key="ingredient._id">{{ ingredient.name + " " +
-                        ingredient.amount + " " + ingredient.unit }}</li>
+                    <li v-for="ingredient in recipe.ingredients" :key="ingredient._id"> {{ ingredient.name }}
+                        {{ ingredient.amount }} {{ ingredient.unit }} </li>
                 </ul>
             </div>
             <div class="u-image"><img :src="recipe.imageUrl" alt="picture"></div>
