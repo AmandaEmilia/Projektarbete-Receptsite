@@ -33,7 +33,6 @@ export default {
         <div class="grid-container">
             <div class="grid-item recipe-head">
                 <RouterLink :to="`/recipes/${search._id}`">{{ search.title }} </RouterLink>
-                {{ search.ratings }}
             </div>
             <div class="grid-item recipe-img"><img :src="search.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ search.description }}</div>
