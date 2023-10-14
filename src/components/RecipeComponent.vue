@@ -15,7 +15,7 @@
             <div class="u-image"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="u-instructions" v-if="recipe.instructions">
                 <ul>
-                    <li v-for="instruction in recipe.instructions">{{ instruction }}</li>
+                    <li v-for="instruction in recipe.instructions" :key="instruction._id">{{ instruction }}</li>
                 </ul>
             </div>
         </div>
