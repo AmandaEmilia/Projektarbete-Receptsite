@@ -72,7 +72,7 @@ export default {
   emits: ["ratingSaved"],
 
   props: {
-    avgRating: Number,
+    avgRating: String,
     recipeId: String,
   },
 };
