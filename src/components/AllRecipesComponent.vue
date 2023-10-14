@@ -4,18 +4,20 @@
     <!-- <h1>{{ heading }}</h1> -->
     <!-- <h1>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h1> -->
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes" :key="recipe._id">
-        <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
-        <div class="gradient-background">
-            <div class="grid-container">
-                <div class="grid-item recipe-head">
-                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
-                </div>
-                <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-                <div class="grid-item recipe-description">{{ recipe.description }}</div>
-                <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                    <RatingComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`">
-                    </RatingComponent>
+    <main v-if="recipes">
+        <div v-for="recipe in recipes" :key="recipe._id">
+            <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
+            <div class="gradient-background">
+                <div class="grid-container">
+                    <div class="grid-item recipe-head">
+                        <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    </div>
+                    <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+                    <div class="grid-item recipe-description">{{ recipe.description }}</div>
+                    <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
+                        <StarComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`">
+                        </StarComponent>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,14 +26,16 @@
 
 <script>
 import RatingComponent from './RatingComponent.vue';
+import StarComponent from './StarComponent.vue'
 export default {
     components: {
-        RatingComponent
+        RatingComponent,
+        StarComponent
     },
     data() {
         return {
             heading: "ASIATISKA IT KÖKET",
-            recipes: [],
+            recipes: " ",
             time: "min"
         }
     },
