@@ -8,6 +8,8 @@
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-main">{{ recipe.description }}</div>
             <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+            <RatingComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`">
+            </RatingComponent>
         </div>
     </div>
 </template>
