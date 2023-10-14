@@ -1,11 +1,12 @@
 <!-- Task 3.1 CategoryView-->
-<script setup>
+<script>
 import CategoryListComponent from '../components/CategoryListComponent.vue'
 import CategorySearchBox from '../components/CategorySearchBox.vue';
-</script>
-<script>
-
 export default {
+    components: {
+        CategoryListComponent,
+        CategorySearchBox
+    },
     data() {
         return {
             category: "",
