@@ -1,19 +1,5 @@
 <template>
     <h1>{{ this.$route.params.categoryId }}</h1>
-
-    <!-- <div v-for="recipe in category" :key="recipe._id">
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
-            </div>
-            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-main">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
-            <StarComponent :avg-rating="`${recipe.avgRating}`"></StarComponent>
-        </div>
-    </div> -->
-
-
     <main v-if="category">
         <div v-for="recipe in category" :key="recipe._id">
             <div class="gradient-background">
