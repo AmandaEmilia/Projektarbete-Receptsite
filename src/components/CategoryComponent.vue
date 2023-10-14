@@ -20,10 +20,12 @@ export default {
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.category = null;
-            const response = await fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/categories/${this.$route.params.categoryId}/recipes`)
-            this.category = await response.json();
+            fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/categories/${this.$route.params.categoryId}/recipes`)
+                .then((response) => response.json())
+                .then((data) => { this.category = data })
+
         }
     },
     created() {
