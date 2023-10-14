@@ -21,7 +21,11 @@
     </main>
 </template>
 <script>
+import RatingComponent from './RatingComponent.vue';
 export default {
+    components: {
+        RatingComponent
+    },
     data() {
         return {
             heading: "",
