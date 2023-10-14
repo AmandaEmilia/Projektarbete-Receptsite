@@ -80,17 +80,17 @@ export default {
 
 <style>
 .star {
-  color: orange;
+  color: black;
   font-size: 42px;
 }
 
 .star:hover {
-  color: whitesmoke;
+  color: #FFF;
   font-size: 42px;
 }
 
 .checked {
-  color: red;
+  color: rgba(237, 22, 59, 0.50);
   font-size: 42px;
 }
 </style>
