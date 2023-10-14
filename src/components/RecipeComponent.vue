@@ -1,25 +1,25 @@
 <template>
-    <main>
-        <h1 class="u-heading">{{ heading }}</h1>
+    <main v-if="recipe">
+        <h1 class="u-heading">{{ recipe.title }}</h1>
         <div class="u-container">
-            <div class="u-description">{{ description }}</div>
-            <div class="u-amountofingredients"> Antal ingredienser: {{ amountOfIngredients }}</div>
-            <div class="u-minutes"> Minuter: {{ minutes }} </div>
-            <div class="u-ingredients">
+            <div class="u-description">{{ recipe.description }}</div>
+            <div class="u-amountofingredients"> {{ nrOfIngredients }} {{ recipe.ingredients.length }}
+            </div>
+            <div class="u-minutes"> {{ time }} {{ recipe.timeInMins }} </div>
+            <div class="u-ingredients" v-if="recipe.ingredients">
                 <ul>
-                    <li v-for="ingredient in ingredients" :key="ingredient._id">{{ ingredient.name + " " +
+                    <li v-for="ingredient in recipe.ingredients" :key="ingredient._id">{{ ingredient.name + " " +
                         ingredient.amount + " " + ingredient.unit }}</li>
                 </ul>
             </div>
-            <div class="u-image"><img :src="imageUrl" alt="picture"></div>
-            <div class="u-instructions">
+            <div class="u-image"><img :src="recipe.imageUrl" alt="picture"></div>
+            <div class="u-instructions" v-if="recipe.instructions">
                 <ul>
-                    <li v-for="(instruction, index) in instructions" :key="index">{{ instruction }}</li>
+                    <li v-for="instruction in recipe.instructions">{{ instruction }}</li>
                 </ul>
             </div>
         </div>
-        <RatingComponent :recipe-id="this.$route.params.recipeId" @rating-saved="updateSomethingWhenRateISPosted">
-        </RatingComponent>
+        <RatingComponent :recipe-id="this.$route.params.recipeId" :avg-rating="`${recipe.avgRating}`"></RatingComponent>
     </main>
 </template>
 <script>
@@ -30,35 +30,21 @@ export default {
     },
     data() {
         return {
-            heading: "",
             recipe: "",
-            imageUrl: "",
-            description: "",
-            instructions: [],
-            ingredients: [],
-            amountOfIngredients: 0,
-            minutes: 0,
-            time: "min"
+            recipeId: "",
+            time: "Minuter:",
+            nrOfIngredients: "Antal ingredienser:"
         }
     },
     methods: {
-        async fetchData() {
+        fetchData() {
             this.recipe = null;
             fetch(`https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes/${this.$route.params.recipeId}`)
                 .then((response) => response.json())
-                .then(recipeData => {
-                    this.recipe = recipeData;
-                    this.heading = this.recipe.title;
-                    this.imageUrl = this.recipe.imageUrl;
-                    this.description = this.recipe.description;
-                    this.instructions = this.recipe.instructions;
-                    this.ingredients = this.recipe.ingredients;
-                    this.amountOfIngredients = this.recipe.ingredients.length;
-                    this.minutes = this.recipe.timeInMins;
-                });
+                .then((data) => { this.recipe = data });
         }
     },
-    beforeMount() {
+    mounted() {
         this.fetchData()
     }
 }
