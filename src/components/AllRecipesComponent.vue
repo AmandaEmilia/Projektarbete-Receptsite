@@ -11,12 +11,12 @@
                 <div class="grid-container">
                     <div class="grid-item recipe-head">
                         <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                        <StarComponent :avg-rating="`${recipe.avgRating}`">
+                        </StarComponent>
                     </div>
                     <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                     <div class="grid-item recipe-description">{{ recipe.description }}</div>
                     <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                        <StarComponent :avg-rating="`${recipe.avgRating}`">
-                        </StarComponent>
                     </div>
                 </div>
             </div>
