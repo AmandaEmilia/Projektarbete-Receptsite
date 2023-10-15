@@ -14,7 +14,6 @@
 export default {
     data() {
         return {
-            heading: "Kategorier",
             categories: []
         }
     },
@@ -33,7 +32,6 @@ export default {
     }
 }
 </script>
-
 <style scoped>
 .category-background {
     width: 15%;
@@ -43,6 +41,6 @@ export default {
     padding-left: 3%;
     padding-top: 1%;
 
+
 }
 </style>
-
