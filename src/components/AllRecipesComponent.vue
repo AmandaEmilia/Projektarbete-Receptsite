@@ -4,20 +4,19 @@
     <!-- <h1>{{ heading }}</h1> -->
     <!-- <h1>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h1> -->
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-if="recipes">
-        <div v-for="recipe in recipes" :key="recipe._id">
-            <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
-            <div class="gradient-background">
-                <div class="grid-container">
-                    <div class="grid-item recipe-head">
-                        <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
-                        <StarComponent :avg-rating="`${recipe.avgRating}`">
-                        </StarComponent>
-                    </div>
-                    <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-                    <div class="grid-item recipe-description">{{ recipe.description }}</div>
-                    <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                    </div>
+    <main v-for="recipe in recipes" :key="recipe._id" v-if="recipes">
+        <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
+        <div class="gradient-background">
+            <div class="grid-container">
+                <div class="grid-item recipe-head">
+                    <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <StarComponent :avg-rating="`${recipe.avgRating}`">
+                    </StarComponent>
+                </div>
+                <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+                <div class="grid-item recipe-description">{{ recipe.description }}</div>
+                <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
+
                 </div>
             </div>
         </div>
@@ -177,8 +176,6 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    /* background-color: rgba(255, 255, 255, 0.9); */
-    /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
 </style>
