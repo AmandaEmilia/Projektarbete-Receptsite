@@ -11,11 +11,12 @@
             <div class="grid-item recipe-head">
                 <RouterLink :to="`/recipes/${recipe._id}/${recipe.avgRating}`">{{ recipe.title }} {{ recipe.ratings }}
                 </RouterLink>
+                <RatingComponent></RatingComponent>
             </div>
             <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
             <div class="grid-item recipe-description">{{ recipe.description }}</div>
             <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                <RatingComponent></RatingComponent>
+                
             </div>
         </div>
         </div>
@@ -175,8 +176,6 @@ img {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    /* background-color: rgba(255, 255, 255, 0.9); */
-    /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
 
