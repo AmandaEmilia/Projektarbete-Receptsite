@@ -22,11 +22,11 @@ export default {
 <style>
 .star {
     color: black;
-    font-size: 42px;
+    font-size: 21px;
 }
 
 .checked {
     color: rgba(237, 22, 59, 0.50);
-    font-size: 42px;
+    font-size: 21px;
 }
 </style>
