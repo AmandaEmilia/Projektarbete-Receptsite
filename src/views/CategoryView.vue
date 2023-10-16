@@ -1,4 +1,22 @@
 <!-- Task 3.1 CategoryView-->
+<template>
+    <CategorySearchBox></CategorySearchBox>
+    <CategoryListComponent></CategoryListComponent>
+    <h1>{{ this.$route.params.categoryId }}</h1>
+    <div v-for="recipe in category">
+        <div class="grid-container">
+            <div class="grid-item recipe-head">
+                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}
+                    <!-- {{ recipe.avgRating }} -->
+                </RouterLink>
+            </div>
+            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+            <div class="grid-item recipe-main">{{ recipe.description }}</div>
+            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+        </div>
+    </div>
+</template>
+
 <script setup>
 import CategoryListComponent from '../components/CategoryListComponent.vue'
 import CategorySearchBox from '../components/CategorySearchBox.vue';
@@ -34,21 +52,5 @@ export default {
 
 </script>
 
-<template>
-    <CategorySearchBox></CategorySearchBox>
-    <CategoryListComponent></CategoryListComponent>
-    <h1>{{ this.$route.params.categoryId }}</h1>
-    <div v-for="recipe in category">
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}
-                    <!-- {{ recipe.avgRating }} -->
-                </RouterLink>
-            </div>
-            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-main">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
-        </div>
-    </div>
-</template>
+
 <style scoped></style>

@@ -1,4 +1,21 @@
 <!-- Task Söka recept bara inom vald kategori när man befinners sig på categoryView-->
+<template>
+    <input v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
+    <button type="submit" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
+
+    <div v-for="search in searchResult" :key="searchResult._id">
+        <!-- {{ search.title }} -->
+        <div class="grid-container">
+            <div class="grid-item recipe-head">
+                <RouterLink :to="`/recipes/${search._id}`">{{ search.title }} </RouterLink>
+                {{ search.ratings }}
+            </div>
+            <div class="grid-item recipe-img"><img :src="search.imageUrl" alt="picture"></div>
+            <div class="grid-item recipe-main">{{ search.description }}</div>
+            <div class="grid-item recipe-foot">{{ search.timeInMins }} {{ time }}</div>
+        </div>
+    </div>
+</template>
 
 <script>
 export default {
@@ -24,20 +41,3 @@ export default {
 </script>
 
 
-<template>
-    <input v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
-    <button type="submit" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
-
-    <div v-for="search in searchResult" :key="searchResult._id">
-        <!-- {{ search.title }} -->
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${search._id}`">{{ search.title }} </RouterLink>
-                {{ search.ratings }}
-            </div>
-            <div class="grid-item recipe-img"><img :src="search.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-main">{{ search.description }}</div>
-            <div class="grid-item recipe-foot">{{ search.timeInMins }} {{ time }}</div>
-        </div>
-    </div>
-</template>
