@@ -18,6 +18,7 @@
         </div>
     </main>
 </template>
+
 <script>
 import StarComponent from './StarComponent.vue';
 export default {
