@@ -16,7 +16,6 @@
                 <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="grid-item recipe-description">{{ recipe.description }}</div>
                 <div class="grid-item recipe-foot">
-                    <StarComponent :avg-rating="`${recipe.avgRating}`"></StarComponent> |
                     {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
                     {{ recipe.timeInMins }} {{ time }}
                 </div>
