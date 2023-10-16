@@ -1,9 +1,14 @@
 <template>
   <!-- <h1>HomeView</h1> -->
-  <span>
-    <CategoryListComponent></CategoryListComponent><SearchBoxComponent></SearchBoxComponent>
-  </span>
-  <AllRecipesComponent></AllRecipesComponent>
+  <SearchBoxComponent></SearchBoxComponent>
+  <div class="flex-container">
+    <div>
+      <CategoryListComponent></CategoryListComponent>
+    </div>
+    <div>
+      <AllRecipesComponent></AllRecipesComponent>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -21,4 +26,18 @@ export default {
 </script>
 
 
-<style scoped></style>
+<style scoped>
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .flex-container {
+    width: 100%;
+    margin-top: 0;
+    flex-direction: column;
+  }
+}
+</style>
