@@ -1,38 +1,38 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
 <template>
-    <!-- <h1>{{ heading }}</h1> -->
-    <!-- <h1>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h1> -->
+    <h1>ASIATISKA IT KÖKET</h1>
+    <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes" :key="recipe._id">
+    <main v-for="recipe in recipes" :key="recipe._id" v-if="recipes">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="gradient-background">
-        <div class="grid-container">
-            <div class="grid-item recipe-head">
-                <RouterLink :to="`/recipes/${recipe._id}/${recipe.avgRating}`">{{ recipe.title }} {{ recipe.ratings }}
-                </RouterLink>
-                <RatingComponent></RatingComponent>
+            <div class="grid-container">
+                <div class="grid-item recipe-head">
+                    <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <StarComponent :avg-rating="`${recipe.avgRating}`">
+                    </StarComponent>
+                </div>
+                <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
+                <div class="grid-item recipe-description">{{ recipe.description }}</div>
+                <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
+
+                </div>
             </div>
-            <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="grid-item recipe-description">{{ recipe.description }}</div>
-            <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-                
-            </div>
-        </div>
         </div>
     </main>
 </template>
 
 <script>
-import RatingComponent from './RatingComponent.vue';
+import StarComponent from './StarComponent.vue'
 export default {
     components: {
-        RatingComponent
+        StarComponent
     },
     data() {
         return {
             heading: "ASIATISKA IT KÖKET",
-            recipes: [],
+            recipes: " ",
             time: "min"
         }
     },
@@ -178,6 +178,4 @@ img {
     padding: 20px;
     border-radius: 10px;
 }
-
-
 </style>

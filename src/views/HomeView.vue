@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script >
+<script>
 import SearchBoxComponent from "../components/SearchBoxComponent.vue";
 import AllRecipesComponent from "../components/AllRecipesComponent.vue";
 import CategoryListComponent from "../components/CategoryListComponent.vue";
