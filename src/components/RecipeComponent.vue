@@ -116,12 +116,8 @@ export default {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 20px;
-    /* background-color: rgba(255, 255, 255, 0.9); */
-    /* Semi-genomskinlig bakgrundsfärg */
     border-radius: 10px;
 }
 
-
-/* Styla <div> element med klassen "grid-container" */
 </style>
 

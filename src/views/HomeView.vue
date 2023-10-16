@@ -1,7 +1,8 @@
 <template>
   <!-- <h1>HomeView</h1> -->
-  <SearchBoxComponent></SearchBoxComponent>
-  <CategoryListComponent></CategoryListComponent>
+  <span>
+    <CategoryListComponent></CategoryListComponent><SearchBoxComponent></SearchBoxComponent>
+  </span>
   <AllRecipesComponent></AllRecipesComponent>
 </template>
 
