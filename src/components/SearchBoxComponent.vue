@@ -3,7 +3,6 @@
 export default {
     data() {
         return {
-            heading: "Sök här",
             recipes: [],
             time: "min"
         }
@@ -18,13 +17,13 @@ export default {
     }
 }
 </script>
+
 <template>
     <div class="greetings">
-        <h1 class="green">{{ heading }}</h1>
-        <form class="formwrapper">
+        <div class="formwrapper">
             <input type="text" id="searchbox" placeholder="Search for..." required>
             <input type="submit" value="go" id="btn" @click="fetchData">
-        </form>
+        </div>
     </div>
     <main v-for="recipe in recipes">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
