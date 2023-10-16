@@ -1,9 +1,18 @@
 <template>
-    <span class="star" v-bind:class="updateRating(1)"> ★ </span>
+  <!--   <span class="star" v-bind:class="updateRating(1)"> ★ </span>
     <span class="star" v-bind:class="updateRating(2)"> ★ </span>
     <span class="star" v-bind:class="updateRating(3)"> ★ </span>
     <span class="star" v-bind:class="updateRating(4)"> ★ </span>
-    <span class="star" v-bind:class="updateRating(5)"> ★ </span>
+    <span class="star" v-bind:class="updateRating(5)"> ★ </span> -->
+
+    <span
+        class="star"
+        v-for="star in 5"
+        :key="star"
+        :class="updateRating(star)"
+      >
+      ★
+      </span>
 </template>
 <script>
 export default {
@@ -21,7 +30,7 @@ export default {
 </script>
 <style>
 .star {
-    color: black;
+    color: rgb(223, 218, 218);
     font-size: 21px;
 }
 

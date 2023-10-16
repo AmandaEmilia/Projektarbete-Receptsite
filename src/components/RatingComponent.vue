@@ -1,14 +1,28 @@
 
 <template>
-  <h3>Vad tyckte du om receptet? </h3>
+  <h3>Vad tyckte du om receptet?</h3>
   <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
-  <span class="star" @click="rateRecipe(1)" v-bind:class="updateRating(1)"> ★ </span>
-  <span class="star" @click="rateRecipe(2)" v-bind:class="updateRating(2)"> ★ </span>
-  <span class="star" @click="rateRecipe(3)" v-bind:class="updateRating(3)"> ★ </span>
-  <span class="star" @click="rateRecipe(4)" v-bind:class="updateRating(4)"> ★ </span>
-  <span class="star" @click="rateRecipe(5)" v-bind:class="updateRating(5)"> ★ </span>
-
-  <Alert v-if="successMsg" alert-type="success" :alert-message="successMsg"></Alert>
+  <!-- <span class="starRate" @click="rateRecipe(1)" v-bind:class="updateRating(1)"> ★ </span>
+  <span class="starRate" @click="rateRecipe(2)" v-bind:class="updateRating(2)"> ★ </span>
+  <span class="starRate" @click="rateRecipe(3)" v-bind:class="updateRating(3)"> ★ </span>
+  <span class="starRate" @click="rateRecipe(4)" v-bind:class="updateRating(4)"> ★ </span>
+  <span class="starRate" @click="rateRecipe(5)" v-bind:class="updateRating(5)"> ★ </span> -->
+  <div v-if="rating === null || rating === 0" class="starBox">
+    <span
+      class="starRate"
+      v-for="star in 5"
+      :key="star"
+      @click="rateRecipe(star)"
+      :class="{ rated: star <= rating }"
+    >
+      &#9733;
+    </span>
+  </div>
+  <Alert
+    v-if="successMsg"
+    alert-type="success"
+    :alert-message="successMsg"
+  ></Alert>
   <Alert v-if="errorMsg" alert-type="danger" :alert-message="errorMsg"></Alert>
 </template>
 
@@ -28,6 +42,7 @@ export default {
 
   methods: {
     async rateRecipe(ratingToSet) {
+      this.rating = ratingToSet;
       console.log(ratingToSet);
       let rateObj = { rating: ratingToSet };
       fetch(
@@ -48,7 +63,7 @@ export default {
         })
         .then((responseText) => {
           if (!responseText) {
-            this.successMsg = "Tack för din rating!"
+            this.successMsg = "Tack för din rating!";
             this.$emit("ratingSaved");
           } else {
             this.errorMsg = responseText;
@@ -61,9 +76,9 @@ export default {
     },
     updateRating(value) {
       if (value <= this.avgRating) {
-        return 'star checked'
+        return "star checked";
       }
-    }
+    },
   },
   emits: ["ratingSaved"],
 
@@ -75,18 +90,21 @@ export default {
 </script>
 
 <style>
-.star {
-  color: black;
+.starBox {
+  margin-left: 43%;
+}
+
+.starRate {
+  color: rgb(255, 255, 255);
   font-size: 42px;
 }
 
-.star:hover {
-  color: #FFF;
+.starRate:hover {
+  color: rgb(162, 78, 13);
   font-size: 42px;
 }
 
-.checked {
-  color: rgba(237, 22, 59, 0.50);
-  font-size: 42px;
+.rated {
+  color: rgb(164, 60, 8);
 }
 </style>
