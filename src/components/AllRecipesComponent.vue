@@ -15,8 +15,9 @@
                 </div>
                 <div class="grid-item recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="grid-item recipe-description">{{ recipe.description }}</div>
-                <div class="grid-item recipe-foot">{{ recipe.timeInMins }} {{ time }}
-
+                <div class="grid-item recipe-foot">
+                    {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
+                    {{ recipe.timeInMins }} {{ time }}
                 </div>
             </div>
         </div>
@@ -32,13 +33,13 @@ export default {
     data() {
         return {
             heading: "ASIATISKA IT KÖKET",
-            recipes: " ",
-            time: "min"
+            recipes: "",
+            time: "MINUTER",
+            nrOfIngredients: "INGREDIENSER"
         }
     },
     methods: {
         fetchData() {
-            this.recipes = null;
             fetch("https://jau22-recept-grupp1-ijykxvjg4n3m.reky.se/recipes")
                 .then((response) => response.json())
                 .then((data) => { this.recipes = data })

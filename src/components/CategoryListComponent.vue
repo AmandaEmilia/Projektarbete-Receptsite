@@ -41,7 +41,5 @@ export default {
     padding-left: 5%;
     padding-top: 1%;
     margin-left: 10%;
-
-
 }
 </style>
