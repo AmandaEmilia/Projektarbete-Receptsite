@@ -6,28 +6,17 @@
 /* Globala stilar */
 
 body {
-  /* font-family: 'Roboto', sans-serif;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: white; */
-
-
-  background-image: url('backgroundpic.png');
+  background-image: url('asianFood.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
+
 }
 
 /* Huvudkomponenter */
 
 main {
-  /* background-color: white;
-  padding: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   color: #FFF;
   font-family: Kameron;
   font-size: 20px;
@@ -37,41 +26,57 @@ main {
 }
 
 h1 {
-color: #FFF;
-text-align: center;
-font-family: Italiana;
-font-size: 50px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  color: #FFF;
+  text-align: center;
+  font-family: Italiana;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h2 {
+  color: #FFF;
+  font-family: Kameron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 h3 {
-color: #FFF;
-text-align: center;
-font-family: Kameron;
-font-size: 30px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  color: #FFF;
+  text-align: center;
+  font-family: Kameron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 img {
   height: 100%;
-    width: 100%;
-    float: left;
-    margin-right: 10px;
-    border-radius: 50%;
-    border: #ED163B 2px solid;
+  width: 100%;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: #ED163B 2px solid;
+}
+
+.gradient-background {
+  border-radius: 55px;
+  background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
+  margin-left: 20%;
+  margin-top: 5%;
 }
 
 .grid-item .recipe-description {
-color: #FFF;
-font-family: Kameron;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  color: #FFF;
+  font-family: Kameron;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /* Specifika komponenter */
@@ -125,7 +130,9 @@ line-height: normal;
 }
 
 @media screen and (max-width: 768px) {
-  .form-group label, .form-group .form-control{
+
+  .form-group label,
+  .form-group .form-control {
     width: 100%;
     margin-top: 0;
   }

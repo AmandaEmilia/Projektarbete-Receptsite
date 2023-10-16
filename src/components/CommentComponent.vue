@@ -22,7 +22,7 @@
                 </div>
             <div class="prev-comments">
                 <div v-if="comments.length > 0">
-                    <h3>Befintliga kommentarer</h3>
+                    <h3>Tidigare kommentarer</h3>
                     <ul>
                         <li v-for="comment in comments" :key="comment._id">
                             <strong>{{ comment.name }}</strong> - {{ formatDate(comment.createdAt) }}
@@ -116,6 +116,7 @@ export default {
 
 <style scoped>
 .comment-box{
+
     margin-left: 30%;
   
 
