@@ -1,10 +1,4 @@
 <template>
-  <!--   <span class="star" v-bind:class="updateRating(1)"> ★ </span>
-    <span class="star" v-bind:class="updateRating(2)"> ★ </span>
-    <span class="star" v-bind:class="updateRating(3)"> ★ </span>
-    <span class="star" v-bind:class="updateRating(4)"> ★ </span>
-    <span class="star" v-bind:class="updateRating(5)"> ★ </span> -->
-
     <span
         class="star"
         v-for="star in 5"
@@ -14,6 +8,7 @@
       ★
       </span>
 </template>
+
 <script>
 export default {
     methods: {

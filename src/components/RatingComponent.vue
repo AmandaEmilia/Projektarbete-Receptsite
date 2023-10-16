@@ -2,11 +2,6 @@
 <template>
   <h3>Vad tyckte du om receptet?</h3>
   <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
-  <!-- <span class="starRate" @click="rateRecipe(1)" v-bind:class="updateRating(1)"> ★ </span>
-  <span class="starRate" @click="rateRecipe(2)" v-bind:class="updateRating(2)"> ★ </span>
-  <span class="starRate" @click="rateRecipe(3)" v-bind:class="updateRating(3)"> ★ </span>
-  <span class="starRate" @click="rateRecipe(4)" v-bind:class="updateRating(4)"> ★ </span>
-  <span class="starRate" @click="rateRecipe(5)" v-bind:class="updateRating(5)"> ★ </span> -->
   <div v-if="rating === null || rating === 0" class="starBox">
     <span
       class="starRate"
