@@ -16,7 +16,7 @@
             <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
             <div class="grid-container">
                 <div class="recipe-head">
-                    <RouterLink :to="`/recipes/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>

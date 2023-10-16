@@ -17,7 +17,7 @@
 
             <div class="grid-container">
                 <div class="recipe-head">
-                    <RouterLink :to="`/recipes/${search._id}`">{{ search.title }} </RouterLink>
+                    <RouterLink :to="`/recipe/${search._id}`">{{ search.title }} </RouterLink>
                 </div>
                 <div class="recipe-img"><img :src="search.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ search.description }}</div>
