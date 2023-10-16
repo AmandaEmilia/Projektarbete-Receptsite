@@ -118,6 +118,8 @@ export default {
 .comment-box{
 
     margin-left: 30%;
+    /*width: 35%;
+    margin: auto;*/
   
 
 }

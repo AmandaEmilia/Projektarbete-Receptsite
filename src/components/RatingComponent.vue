@@ -86,7 +86,9 @@ export default {
 
 <style>
 .starBox {
-  margin-left: 43%;
+  /*margin-left: 43%;*/
+  width: 218px;
+  margin: auto;
 }
 
 .starRate {
