@@ -1,8 +1,6 @@
 <!-- Task 2.6 Lista recept-->
 <!-- Testing för att köra med pullrequest iställe för git merge-->
 <template>
-    <h1>ASIATISKA IT KÖKET</h1>
-    <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
     <main v-for="recipe in recipes" :key="recipe._id" v-if="recipes">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->

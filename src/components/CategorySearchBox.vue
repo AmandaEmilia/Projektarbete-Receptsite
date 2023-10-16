@@ -1,21 +1,23 @@
 <!-- Task Söka recept bara inom vald kategori när man befinners sig på categoryView-->
 <template>
-    <div class="main-grid">
+    <main class="main-grid">
         <h1>ASIATISKA IT-KÖKET</h1>
-        <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
+        <h3>Kategorisida</h3>
         <div class="greetings">
             <form>
                 <div id="search-icon">
-                    <img src="../assets/search.png">
+                    <img id="searchImg" src="../assets/search.png">
                 </div>
-                <input v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
-                <button type="button" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
+                <div>
+                    <input id="searchbox" v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
+                    <button id="btn" type="button" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
+                </div>
             </form>
         </div>
         <div v-for="recipe in searchResult" :key="recipe._id">
             <!-- {{ search.title }} -->
 
-            <div class="grid-container">
+            <div class="grid-container gradient-background">
                 <div class="recipe-head">
                     <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
                 </div>
@@ -24,7 +26,7 @@
                 <div class="recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 <script>
 export default {
@@ -50,7 +52,7 @@ export default {
 
 <style scoped>
 .greetings {
-    width: 50%;
+    min-width: 50%;
     border-radius: 55px;
     background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
 }
@@ -79,6 +81,11 @@ export default {
     margin-top: 3%;
 }
 
+#searchImg {
+    min-width: 40px;
+    min-height: 40px;
+}
+
 .main-grid {
     display: grid;
     gap: 10px;
@@ -93,8 +100,17 @@ export default {
 
 .grid-container {
     display: grid;
-    gap: 5px;
-    text-align: center;
+    grid-template-areas:
+        'head head head head head head'
+        'main main main main img img'
+        'foot foot foot foot img img';
+    grid-gap: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 20px;
+    border-radius: 10px;
 }
 </style>
 

@@ -3,17 +3,14 @@
     <div class="main-grid">
         <h1>ASIATISKA IT-KÖKET</h1>
         <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
-        <div class="greetings">
-            <form>
-                <div id="search-icon">
-                    <img src="../assets/search.png">
-                </div>
-                <input type="text" id="searchbox" placeholder="Sök bland dina favoritrecept . . ." required>
-                <input type="submit" value="Sök" id="btn" @click="fetchData">
-            </form>
+        <div class="search-box">
+            <div id="search-icon">
+                <img id="searchImg" src="../assets/search.png">
+            </div>
+            <input type="text" id="searchbox" placeholder="Sök bland dina favoritrecept . . ." required>
+            <input type="submit" value="Sök" id="btn" @click="fetchData">
         </div>
         <main class="recipe-grid" v-for="recipe in recipes">
-            <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
             <div class="grid-container">
                 <div class="recipe-head">
                     <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
@@ -48,8 +45,8 @@ export default {
 
 
 <style scoped>
-.greetings {
-    width: 50%;
+.search-box {
+    min-width: 50%;
     border-radius: 55px;
     background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
 }
@@ -60,7 +57,7 @@ export default {
     font-size: 20px;
     background-color: transparent;
     border: none;
-    width: 60%;
+    width: 50%;
     margin-right: 8%;
 }
 
@@ -76,6 +73,11 @@ export default {
     width: 3%;
     margin-left: 10%;
     margin-top: 3%;
+}
+
+#searchImg {
+    min-width: 40px;
+    min-height: 40px;
 }
 
 .main-grid {

@@ -37,6 +37,7 @@ h1 {
 
 h2 {
   color: #FFF;
+  text-align: center;
   font-family: Kameron;
   font-size: 30px;
   font-style: normal;
@@ -56,17 +57,23 @@ h3 {
 
 img {
   height: 100%;
-  width: 100%;
+  width: 100%; 
   float: left;
   margin-right: 10px;
-  border-radius: 50%;
-  border: #ED163B 2px solid;
+  border-radius: 5%;
+  /*border: #ED163B 2px solid;*/
+  object-fit: cover;
+  max-width: 300px;
+  max-height: 300px;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .gradient-background {
   border-radius: 55px;
   background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
-  margin-left: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 5%;
 }
 

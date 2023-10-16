@@ -1,7 +1,7 @@
 <!-- Task 3.1 CategoryView-->
 <template>
     <CategorySearchBox></CategorySearchBox>
-    <CategoryListComponent></CategoryListComponent>
+    <!--<CategoryListComponent></CategoryListComponent>-->
     <CategoryComponent></CategoryComponent>
 </template>
 <script>
