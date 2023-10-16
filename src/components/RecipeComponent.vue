@@ -3,9 +3,11 @@
         <h1 class="u-heading">{{ recipe.title }}</h1>
         <div class="u-container">
             <div class="u-description">{{ recipe.description }}</div>
-            <div class="u-amountofingredients"> {{ nrOfIngredients }} {{ recipe.ingredients.length }}
+            <div class="u-amountofingredients">
+                <StarComponent :avg-rating="`${recipe.avgRating}`"></StarComponent> |
+                {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
+                {{ recipe.timeInMins }} {{ time }}
             </div>
-            <div class="u-minutes"> {{ time }} {{ recipe.timeInMins }} </div>
             <div class="u-ingredients" v-if="recipe.ingredients">
                 <ul>
                     <li v-for="ingredient in recipe.ingredients" :key="ingredient._id"> {{ ingredient.name }}
@@ -24,16 +26,18 @@
 </template>
 <script>
 import RatingComponent from './RatingComponent.vue';
+import StarComponent from './StarComponent.vue';
 export default {
     components: {
-        RatingComponent
+        RatingComponent,
+        StarComponent
     },
     data() {
         return {
             recipe: "",
             recipeId: "",
-            time: "Minuter:",
-            nrOfIngredients: "Antal ingredienser:"
+            time: "MINUTER",
+            nrOfIngredients: "INGREDIENSER"
         }
     },
     methods: {
@@ -118,6 +122,5 @@ export default {
     padding: 20px;
     border-radius: 10px;
 }
-
 </style>
 
