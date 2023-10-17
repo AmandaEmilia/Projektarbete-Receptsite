@@ -22,6 +22,8 @@
             <div class="grid-container gradient-background">
                 <div class="recipe-head">
                     <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
+                    <StarComponent :avg-rating="`${recipe.avgRating}`">
+                    </StarComponent>
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>
@@ -34,7 +36,11 @@
     </main>
 </template>
 <script>
+import StarComponent from './StarComponent.vue'
 export default {
+    components: {
+        StarComponent
+    },
     data() {
         return {
             heading: "Sök ",
