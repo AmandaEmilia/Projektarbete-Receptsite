@@ -7,10 +7,9 @@
                     <img id="searchImg" src="../assets/search.png">
                 </div>
                 <div>
-                    <input id="searchbox" v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`"
-                        name="search">
-                    <button id="btn" type="button" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId
-                    }}</button>
+                    <input id="searchbox" v-model="searchBoxInput"
+                        :placeholder="`Sök inom kategori ${this.$route.params.categoryId}`" name="search">
+                    <button id="btn" type="button" @click="fetchData">{{ heading }}</button>
                 </div>
             </form>
         </div>
