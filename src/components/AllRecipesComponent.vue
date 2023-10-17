@@ -51,71 +51,7 @@ export default {
 
 
 <style>
-/*  h1 {
-    text-align: center;
-}
 
-img {
-    height: 100px;
-    width: 100px;
-    float: inline-start;
-
-}
-
-.recipe-head {
-    grid-area: head;
-    font-size: 30px;
-    text-align: center;
-}
-
-.recipe-img {
-    grid-area: img;
-}
-
-.recipe-main {
-    grid-area: main;
-}
-
-.recipe-foot {
-    grid-area: foot;
-}
-
-.grid-item {
-    background-color: darkgrey;
-    color: black;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        'head head head head head head'
-        'main main main main img img'
-        'foot foot foot foot img img';
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    
-} */
-
-
-/* Styla <h1> elementet */
-/* h1 {
-    text-align: center;
-    font-size: 36px;
-} */
-
-/* Styla bilder */
-/* img { */
-/* height: 100px;
-    width: 100px;
-    float: left;
-    margin-right: 10px;
-    border-radius: 50%; */
-/* Runda kanterna på bilderna */
-/* } */
-
-/* Styla <div> element med klassen "recipe-head" */
 .recipe-head {
     grid-area: head;
     color: #FFF;
@@ -126,7 +62,6 @@ img {
     line-height: normal;
 }
 
-/* Styla <div> element med klassen "recipe-img" */
 .recipe-img {
     grid-area: img;
     display: flex;
@@ -135,33 +70,10 @@ img {
     height: 60%;
 }
 
-/* Styla <div> element med klassen "recipe-main" */
-/* .recipe-main {
-    grid-area: main;
-    font-size: 16px;
-    color: #444;
-    line-height: 1.4;
-    padding: 10px;
-    background-color: #f9f9f9; */
-/* Lätt bakgrundsfärg */
-/* border-radius: 10px;
-} */
-
-/* Styla <div> element med klassen "recipe-foot" */
 .recipe-foot {
     grid-area: foot;
 }
 
-/* Styla alla element med klassen "grid-item" */
-/* .grid-item {
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-} */
-
-/* Styla <div> element med klassen "grid-container" */
 .grid-container {
     display: grid;
     grid-template-areas:
