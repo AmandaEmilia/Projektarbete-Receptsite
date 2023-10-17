@@ -1,5 +1,6 @@
 <!-- Task 4.2 Kommenteringsfunktion-->
 <template>
+    <div class="br"></div>
     <div class="comment">
         <h2>Kommentarer</h2>
         <div v-if="successMsg" class="alert-box">
@@ -9,23 +10,23 @@
             <div class="alert-box">
                 <Alert v-if="invalidErrorMsg" alert-type="warning" :alert-message="invalidErrorMsg"></Alert>
             </div>
-            <div class="form-group">
-                <label>Skriv ditt namn</label>
-                <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Skriv en Kommentar</label>
-                <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
+            <div class="comment-box">
+                <div class="form-group">
+                    <input type="text" placeholder="Ditt namn" v-model="nameInput" class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
+                </div>
             </div>
             <div class="center-button">
                 <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
             </div>
             <div class="prev-comments">
                 <div v-if="comments.length > 0">
-                    <h3>Befintliga kommentarer</h3>
+                    <h3>Tidigare kommentarer</h3>
                     <ul>
                         <li v-for="comment in comments" :key="comment._id">
-                            <strong>{{ comment.name }}</strong> - {{ comment.createdAt }}
+                            <strong>{{ comment.name }}</strong> - {{ formatDate(comment.createdAt) }}
                             <p>{{ comment.comment }}</p>
                         </li>
                     </ul>
@@ -36,15 +37,15 @@
 </template>
 
 <script>
-import Alert from './Alert.vue';
-import Button from './Button.vue';
+import Alert from "./Alert.vue";
+import Button from "./Button.vue";
 export default {
     components: {
         Alert,
-        Button
+        Button,
     },
     props: {
-        recipeId: String
+        recipeId: String,
     },
 
     data() {
@@ -93,6 +94,15 @@ export default {
                     console.log(data);
                     this.comments = data;
                 });
+        },
+
+        formatDate(dateString) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            };
+            return new Date(dateString).toLocaleDateString(undefined, options);
         }
 
 
@@ -106,6 +116,10 @@ export default {
 </script>
 
 <style scoped>
+.comment-box {
+    margin-left: 30%;
+}
+
 .center-button {
     display: flex;
     justify-content: center;
@@ -115,11 +129,9 @@ export default {
 
 .prev-comments {
     color: black;
-
-}
-
-.comment {
-    color: black;
+    height: 50%;
+    width: 50%;
+    margin-left: 20%;
 }
 
 .alert-box {
@@ -127,7 +139,10 @@ export default {
 }
 
 .prev-comments li {
+    background-color: white;
     border-bottom: 1px solid black;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 </style>
 

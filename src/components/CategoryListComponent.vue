@@ -1,9 +1,18 @@
 <!-- Task 2.5 Lista Kategorier-->
+<template>
+        <div class="category-background">
+            <h2>Kategorier</h2>
+            <nav v-for="category in categories" :key="categories._id" :class="{ isCurrent: this.$route.path === `/category/${category.name}`}">
+                <RouterLink class="router-link" :to="`/category/${category.name}`">{{ category.name }} ({{ category.count
+                }})</RouterLink>
+            </nav>
+        </div>
+</template>
+
 <script>
 export default {
     data() {
         return {
-            heading: "Kategorier",
             categories: []
         }
     },
@@ -21,14 +30,14 @@ export default {
         this.fetchData()
     }
 }
-
 </script>
+<style scoped>
 
+.category-background nav {
+    padding-top: 10%;
+}
 
-<template>
-    <h1>{{ heading }}</h1>
-
-    <nav v-for="category in categories" :key="categories._id">
-        <RouterLink :to="`/category/${category.name}`">{{ category.name }} ({{ category.count }})</RouterLink>
-    </nav>
-</template>
+.isCurrent {
+    font-weight: bold;
+}
+</style>

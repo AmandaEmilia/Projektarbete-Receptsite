@@ -16,7 +16,7 @@ const router = createRouter({
     },
     ,
     {
-      path: '/recipes/:recipeId', // task 2.3.2 Skapa routes till Receptsida
+      path: '/recipe/:recipeId/', // task 2.3.2 Skapa routes till Receptsida
       name: 'recipe',
       component: () => import('../views/RecipeView.vue')
     }

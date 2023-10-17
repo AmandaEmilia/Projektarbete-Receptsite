@@ -19,11 +19,11 @@
 .btn {
   border: black solid; /* Remove borders */
   color: white; /* Add a text color */
-  padding: 5px 10px; /* Add some padding */
+  padding: 10px 25px; /* Add some padding */
   cursor: pointer; /* Add a pointer cursor on mouse-over */
 }
 
-.success {background-color: #04AA6D;} /* Green */
+.success {background-color: #ED163B;} 
 .success:hover {background-color: #46a049;}
 .btn:disabled {background-color: grey;}
 .info {background-color: #2196F3;} /* Blue */
