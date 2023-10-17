@@ -7,7 +7,7 @@
         <div class="gradient-background">
             <div class="grid-container">
                 <div class="grid-item recipe-head">
-                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
                     <StarComponent :avg-rating="`${recipe.avgRating}`">
                     </StarComponent>
                 </div>

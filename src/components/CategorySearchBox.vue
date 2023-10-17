@@ -9,8 +9,10 @@
                     <img id="searchImg" src="../assets/search.png">
                 </div>
                 <div>
-                    <input id="searchbox" v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`" name="search">
-                    <button id="btn" type="button" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId }}</button>
+                    <input id="searchbox" v-model="searchBoxInput" :placeholder="`Sök ${this.$route.params.categoryId}`"
+                        name="search">
+                    <button id="btn" type="button" @click="fetchData">{{ heading }} {{ this.$route.params.categoryId
+                    }}</button>
                 </div>
             </form>
         </div>
@@ -19,7 +21,7 @@
 
             <div class="grid-container gradient-background">
                 <div class="recipe-head">
-                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
+                    <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>

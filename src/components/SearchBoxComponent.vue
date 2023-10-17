@@ -13,7 +13,7 @@
         <main class="recipe-grid" v-for="recipe in recipes">
             <div class="grid-container">
                 <div class="recipe-head">
-                    <RouterLink :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>
