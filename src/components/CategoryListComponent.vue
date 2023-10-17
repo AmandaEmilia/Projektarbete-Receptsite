@@ -2,7 +2,7 @@
 <template>
         <div class="category-background">
             <h2>Kategorier</h2>
-            <nav v-for="category in categories" :key="categories._id">
+            <nav v-for="category in categories" :key="categories._id" :class="{ isCurrent: this.$route.path === `/category/${category.name}`}">
                 <RouterLink class="router-link" :to="`/category/${category.name}`">{{ category.name }} ({{ category.count
                 }})</RouterLink>
             </nav>
@@ -35,5 +35,9 @@ export default {
 
 .category-background nav {
     padding-top: 10%;
+}
+
+.isCurrent {
+    font-weight: bold;
 }
 </style>
