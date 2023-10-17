@@ -1,8 +1,6 @@
 <!-- Task Söka recept bara inom vald kategori när man befinners sig på categoryView-->
 <template>
     <main class="main-grid">
-        <h1>ASIATISKA IT-KÖKET</h1>
-        <h3>Kategorisida</h3>
         <div class="greetings">
             <form>
                 <div id="search-icon">
