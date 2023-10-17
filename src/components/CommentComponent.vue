@@ -1,5 +1,6 @@
 <!-- Task 4.2 Kommenteringsfunktion-->
 <template>
+    <div class="br"></div>
     <div class="comment">
         <h2>Kommentarer</h2>
         <div v-if="successMsg" class="alert-box">
@@ -17,9 +18,9 @@
                     <textarea placeholder="Skriv din kommentar" v-model="commentInput" class="form-control"></textarea>
                 </div>
             </div>
-                <div class="center-button">
-                    <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
-                </div>
+            <div class="center-button">
+                <Button :disabled="!isInputValid" @btn-click="submitComment" btn-type="success">Skicka</Button>
+            </div>
             <div class="prev-comments">
                 <div v-if="comments.length > 0">
                     <h3>Tidigare kommentarer</h3>
@@ -39,13 +40,13 @@
 import Alert from "./Alert.vue";
 import Button from "./Button.vue";
 export default {
-  components: {
-    Alert,
-    Button,
-  },
-  props: {
-    recipeId: String,
-  },
+    components: {
+        Alert,
+        Button,
+    },
+    props: {
+        recipeId: String,
+    },
 
     data() {
         return {
@@ -95,14 +96,14 @@ export default {
                 });
         },
 
-         formatDate(dateString) {
-           const options = {
-           year: 'numeric',
-           month: 'long',
-           day: 'numeric',
-      };
-      return new Date(dateString).toLocaleDateString(undefined, options);
-    }
+        formatDate(dateString) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
 
 
     },
@@ -115,9 +116,10 @@ export default {
 </script>
 
 <style scoped>
-.comment-box{
+.comment-box {
     margin-left: 30%;
 }
+
 .center-button {
     display: flex;
     justify-content: center;
