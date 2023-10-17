@@ -25,7 +25,10 @@
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>
-                <div class="recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+                <div class="recipe-foot">
+                    {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
+                    {{ recipe.timeInMins }} {{ time }}
+                </div>
             </div>
         </div>
     </main>
@@ -37,7 +40,8 @@ export default {
             heading: "Sök ",
             searchBoxInput: "",
             searchResult: [],
-            time: "min"
+            time: "MINUTER",
+            nrOfIngredients: "INGREDIENSER"
         }
     },
     methods: {
