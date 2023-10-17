@@ -25,6 +25,11 @@ main {
   line-height: normal;
 }
 
+.router-link {
+  color: #FFF;
+  text-decoration: none;
+}
+
 h1 {
   color: #FFF;
   text-align: center;
@@ -57,7 +62,7 @@ h3 {
 
 img {
   height: 100%;
-  width: 100%; 
+  width: 100%;
   float: left;
   margin-right: 10px;
   border-radius: 5%;
@@ -137,6 +142,7 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+
   .form-group label,
   .form-group .form-control {
     width: 100%;
