@@ -17,7 +17,7 @@
         <div v-for="recipe in searchResult" :key="recipe._id">
             <!-- {{ search.title }} -->
 
-            <div class="grid-container gradient-background">
+            <div class="grid-container gradient-background main">
                 <div class="recipe-head">
                     <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
                     <StarComponent :avg-rating="`${recipe.avgRating}`">
@@ -67,46 +67,6 @@ export default {
     background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
 }
 
-#searchbox {
-    color: white;
-    font-family: Kameron;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    width: 60%;
-    margin-right: 8%;
-}
-
-#btn {
-    border: #ED163B 1px solid;
-    background: transparent;
-    color: white;
-    vertical-align: middle;
-}
-
-#search-icon {
-    color: #ED163B;
-    width: 3%;
-    margin-left: 10%;
-    margin-top: 3%;
-}
-
-#searchImg {
-    min-width: 40px;
-    min-height: 40px;
-}
-
-.main-grid {
-    display: grid;
-    gap: 10px;
-    justify-items: center;
-}
-
-.recipe-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-}
 
 .grid-container {
     display: grid;
