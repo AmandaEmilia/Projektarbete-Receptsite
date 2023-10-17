@@ -116,10 +116,7 @@ export default {
 
 <style scoped>
 .comment-box{
-
     margin-left: 30%;
-  
-
 }
 .center-button {
     display: flex;

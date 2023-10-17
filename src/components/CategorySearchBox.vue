@@ -18,8 +18,8 @@
 
 
     <div class="main-grid">
-        <h1>ASIATISKA IT-KÖKET</h1>
-        <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
+        <!-- <h1>ASIATISKA IT-KÖKET</h1>
+        <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3> -->
         <div class="greetings">
             <form>
                 <div id="search-icon">

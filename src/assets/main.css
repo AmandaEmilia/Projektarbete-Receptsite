@@ -16,13 +16,11 @@ body {
 
 /* Huvudkomponenter */
 
-main {
+.main {
   color: #FFF;
   font-family: Kameron;
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 h1 {
@@ -63,10 +61,20 @@ img {
   border: #ED163B 2px solid;
 }
 
+a {
+  color: white; 
+  padding: 5%;
+  
+}
+
+a:link {
+  text-decoration: none;
+}
+
 .gradient-background {
   border-radius: 55px;
   background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
-  margin-left: 20%;
+  margin-left: 0%;
   margin-top: 5%;
 }
 
@@ -75,8 +83,6 @@ img {
   font-family: Kameron;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 /* Specifika komponenter */

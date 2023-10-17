@@ -1,8 +1,6 @@
 <!-- Task 2.4  Söka Recept-->
 <template>
     <div class="main-grid">
-        <h1>ASIATISKA IT-KÖKET</h1>
-        <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
         <div class="greetings">
             <form>
                 <div id="search-icon">
@@ -12,7 +10,7 @@
                 <input type="submit" value="Sök" id="btn" @click="fetchData">
             </form>
         </div>
-        <main class="recipe-grid" v-for="recipe in recipes">
+        <div class="recipe-grid main" v-for="recipe in recipes">
             <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
             <div class="grid-container">
                 <div class="recipe-head">
@@ -22,7 +20,7 @@
                 <div class="recipe-main">{{ recipe.description }}</div>
                 <div class="recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
             </div>
-        </main>
+        </div>
     </div>
 </template>
 

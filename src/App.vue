@@ -1,12 +1,14 @@
 <template>
   <header>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/category/:categoryId"></RouterLink>
-      <RouterLink to="/recipe/:recipeId"></RouterLink>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/category/:categoryId"></RouterLink>
+    <RouterLink to="/recipe/:recipeId"></RouterLink>
   </header>
-
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
+
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 </script>
