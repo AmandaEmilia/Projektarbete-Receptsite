@@ -2,7 +2,7 @@
 <!-- Testing för att köra med pullrequest iställe för git merge-->
 <template>
     <!-- Loopar genom och skriver ut enskilt recept på hemsida -->
-    <main v-for="recipe in recipes" :key="recipe._id" v-if="recipes">
+    <div class="main" v-for="recipe in recipes" :key="recipe._id" v-if="recipes">
         <!-- Layout med grid-container och grid-item för lite snyggare presentation(kan tas bort och ersättas med något annat) -->
         <div class="gradient-background">
             <div class="grid-container">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script>
@@ -118,11 +118,12 @@ img {
 /* Styla <div> element med klassen "recipe-head" */
 .recipe-head {
     grid-area: head;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 10px;
+    color: #FFF;
+    font-family: Kameron;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 /* Styla <div> element med klassen "recipe-img" */
@@ -149,8 +150,6 @@ img {
 /* Styla <div> element med klassen "recipe-foot" */
 .recipe-foot {
     grid-area: foot;
-    font-size: 14px;
-    margin-top: 10px;
 }
 
 /* Styla alla element med klassen "grid-item" */
@@ -169,12 +168,9 @@ img {
         'head head head head head head'
         'main main main main img img'
         'foot foot foot foot img img';
-    grid-gap: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    padding: 20px;
-    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2%;
 }
+
 </style>

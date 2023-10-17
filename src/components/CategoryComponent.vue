@@ -1,6 +1,6 @@
 <template>
     <h1>{{ this.$route.params.categoryId }}</h1>
-    <main v-if="category">
+    <div class="main" v-if="category">
         <div v-for="recipe in category" :key="recipe._id">
             <div class="gradient-background">
                 <div class="grid-container">
@@ -17,8 +17,9 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
+
 <script>
 import StarComponent from './StarComponent.vue';
 export default {
