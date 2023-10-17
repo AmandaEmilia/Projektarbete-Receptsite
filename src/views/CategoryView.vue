@@ -1,6 +1,6 @@
 <!-- Task 3.1 CategoryView-->
 <template>
-    <Header>Välkommen till den unika receptsidan för dig som gillar mat från Asien</Header>
+    <Header>Kategorier</Header>
     <CategorySearchBox></CategorySearchBox>
     <!--<CategoryListComponent></CategoryListComponent>-->
     <CategoryComponent></CategoryComponent>

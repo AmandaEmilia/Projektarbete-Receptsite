@@ -89,6 +89,10 @@ export default {
   /*margin-left: 43%;*/
   width: 218px;
   margin: auto;
+  display: inline;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .starRate {
@@ -97,7 +101,7 @@ export default {
 }
 
 .starRate:hover {
-  color: rgb(162, 78, 13);
+  color:#ED163B;
   font-size: 42px;
 }
 

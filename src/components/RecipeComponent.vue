@@ -2,21 +2,21 @@
     <main v-if="recipe">
         <h1 class="u-heading">{{ recipe.title }}</h1>
         <div class="u-container">
-            <div class="u-description">{{ recipe.description }}</div>
+            <div class="u-description main">{{ recipe.description }}</div>
             <div class="u-image"><img :src="recipe.imageUrl" alt="picture"></div>
-            <div class="u-amountofingredients">
+            <div class="u-amountofingredients main">
                 <StarComponent :avg-rating="`${recipe.avgRating}`"></StarComponent> |
                 {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
                 {{ recipe.timeInMins }} {{ time }}
             </div>
-            <div class="u-ingredients" v-if="recipe.ingredients">
+            <div class="u-ingredients main" v-if="recipe.ingredients">
                 <h2>Ingredienser</h2>
                 <ul class="gradient-background">
                     <li v-for="ingredient in recipe.ingredients" :key="ingredient._id"> {{ ingredient.name }}
                         {{ ingredient.amount }} {{ ingredient.unit }} </li>
                 </ul>
             </div>
-            <div class="u-instructions" v-if="recipe.instructions">
+            <div class="u-instructions main" v-if="recipe.instructions">
                 <h2>Gör så här:</h2>
                 <ul>
                     <li class="gradient-background" v-for="instruction in recipe.instructions" :key="instruction._id">{{ instruction }}</li>
@@ -70,16 +70,6 @@ li {
     padding: 10px;
     margin-left: 0px;
     margin-right: 0px;
-}
-
-.br {
-    height: 2px; 
-    background-color: #ED163B;
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    width: 80%;
 }
 
 .u-description {

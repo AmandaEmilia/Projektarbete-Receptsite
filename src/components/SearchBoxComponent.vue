@@ -1,8 +1,6 @@
 <!-- Task 2.4  Söka Recept-->
 <template>
     <div class="main-grid">
-        <h1>ASIATISKA IT-KÖKET</h1>
-        <h3>Välkommen till den unika receptsidan för dig som gillar mat från Asien</h3>
         <div class="search-box">
             <div id="search-icon">
                 <img id="searchImg" src="../assets/search.png">
