@@ -1,7 +1,7 @@
 <!-- Task Söka recept bara inom vald kategori när man befinners sig på categoryView-->
 <template>
     <main class="main-grid">
-        <div class="greetings">
+        <div class="search-box">
             <form>
                 <div id="search-icon">
                     <img id="searchImg" src="../assets/search.png">
@@ -18,11 +18,11 @@
             <!-- {{ search.title }} -->
 
             <div class="grid-container gradient-background main">
-                <div class="recipe-head">
+                <h2 class="recipe-head">
                     <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }} </RouterLink>
                     <StarComponent :avg-rating="`${recipe.avgRating}`">
                     </StarComponent>
-                </div>
+                </h2>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>
                 <div class="recipe-foot">
@@ -61,12 +61,6 @@ export default {
 </script>
 
 <style scoped>
-.greetings {
-    min-width: 50%;
-    border-radius: 55px;
-    background: linear-gradient(180deg, rgba(237, 22, 59, 0.50) 0%, rgba(255, 255, 255, 0.00) 22.4%);
-}
-
 
 .grid-container {
     display: grid;

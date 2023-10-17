@@ -32,14 +32,6 @@ export default {
 }
 </script>
 <style scoped>
-.category-background {
-    width: 100%;
-    height: 50%;
-    border-radius: 6px;
-    background: linear-gradient(180deg, rgba(237, 22, 59, 0.25) 0%, rgba(237, 22, 59, 0.25) 0.01%, rgba(217, 217, 217, 0.00) 76.04%);
-    padding: 3%;
-    
-}
 
 .category-background nav {
     padding-top: 10%;
