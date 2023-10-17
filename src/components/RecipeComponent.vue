@@ -11,7 +11,7 @@
             </div>
             <div class="u-ingredients main" v-if="recipe.ingredients">
                 <h2>Ingredienser</h2>
-                <ul class="gradient-background">
+                <ul class="category-background">
                     <li v-for="ingredient in recipe.ingredients" :key="ingredient._id"> {{ ingredient.name }}
                         {{ ingredient.amount }} {{ ingredient.unit }} </li>
                 </ul>
@@ -96,11 +96,6 @@ li {
 
 .u-ingredients {
     grid-column-start: 1;
-    grid-column-end: 2;
-    line-height: 1.4;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 10px;
 }
 
 .u-image {

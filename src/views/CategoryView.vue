@@ -1,9 +1,16 @@
 <!-- Task 3.1 CategoryView-->
 <template>
     <Header>Kategorier</Header>
-    <CategorySearchBox></CategorySearchBox>
-    <!--<CategoryListComponent></CategoryListComponent>-->
-    <CategoryComponent></CategoryComponent>
+
+    <div class="flex-container">
+    <div class="flex-item-one">
+      <CategoryListComponent></CategoryListComponent>
+    </div>
+    <div class="flex-item-two">
+      <CategorySearchBox></CategorySearchBox>
+      <CategoryComponent></CategoryComponent>
+    </div>
+  </div>
 </template>
 <script>
 import Header from '../components/Header.vue';

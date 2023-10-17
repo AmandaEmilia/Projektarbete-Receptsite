@@ -32,21 +32,7 @@ export default {
 
 <style scoped>
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-  padding: 3%;
-}
-.flex-item-one{
-  flex: 1 1 15%;
-}
-.flex-item-two{
-  flex: 3 1 85%;
-  padding-left:3%;
-}
+
 /* 
 @media screen and (max-width: 768px) {
   .flex-container {
