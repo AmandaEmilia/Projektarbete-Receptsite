@@ -14,22 +14,31 @@
             <div class="grid-container">
                 <div class="recipe-head">
                     <RouterLink class="router-link" :to="`/recipe/${recipe._id}`">{{ recipe.title }}</RouterLink>
+                    <StarComponent :avg-rating="`${recipe.avgRating}`">
+                    </StarComponent>
                 </div>
                 <div class="recipe-img"><img :src="recipe.imageUrl" alt="picture"></div>
                 <div class="recipe-main">{{ recipe.description }}</div>
-                <div class="recipe-foot">{{ recipe.timeInMins }} {{ time }}</div>
+                <div class="recipe-foot">
+                    {{ recipe.ingredients.length }} {{ nrOfIngredients }} |
+                    {{ recipe.timeInMins }} {{ time }}
+                </div>
             </div>
         </main>
     </div>
 </template>
 
 <script>
-
+import StarComponent from './StarComponent.vue'
 export default {
+    components: {
+        StarComponent
+    },
     data() {
         return {
             recipes: [],
-            time: "min"
+            time: "MINUTER",
+            nrOfIngredients: "INGREDIENSER"
         }
     },
     methods: {
